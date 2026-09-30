@@ -1,258 +1,1349 @@
 "use client";
 
-import { motion } from "motion/react";
-import { useState } from "react";
+import {
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useSpring,
+} from "motion/react";
+
+import {
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+
+
+/* =========================================================
+   CONFIG
+========================================================= */
 
 const BLINDS = 16;
 
-const nameLetters = [
-  { char: "P", x: -20, y: 12, r: -5 },
-  { char: "R", x: 8, y: -18, r: 3 },
-  { char: "A", x: -5, y: 14, r: -2 },
-  { char: "T", x: 15, y: -8, r: 4 },
-  { char: "Y", x: -10, y: 4, r: -3 },
-  { char: "U", x: 8, y: 14, r: 2 },
-  { char: "S", x: -6, y: -13, r: -4 },
-  { char: "H", x: 13, y: 6, r: 3 },
-  { char: "A", x: -10, y: -4, r: -2 },
+const NAME = "Pratyusha";
+
+const PHRASE_WORDS = [
+  "nothing",
+  "is",
+  "never",
+  "just",
+  "nothing",
 ];
 
-/*
-  Extra movement when hovering the name.
-  Intentionally gentle and asymmetrical.
-*/
-const nameWander = [
-  { x: -38, y: -22, r: -8 },
-  { x: 24, y: 30, r: 6 },
-  { x: -18, y: 34, r: -5 },
-  { x: 36, y: -18, r: 7 },
-  { x: -28, y: -8, r: -6 },
-  { x: 20, y: 27, r: 5 },
-  { x: -32, y: -26, r: -7 },
-  { x: 28, y: 20, r: 6 },
-  { x: -19, y: 30, r: -4 },
-];
 
-const phrase = "nothing is never just nothing";
+/* =========================================================
+   VIEWPORT
+========================================================= */
 
-const phraseScatter = [
-  [-18, -10, -3],
-  [8, 15, 2],
-  [-6, -17, -2],
-  [19, 5, 3],
-  [-14, 12, -3],
-  [7, -12, 2],
-  [-20, 3, -3],
-  [11, 18, 2],
-  [-8, -15, -1],
-  [16, -5, 3],
-  [-12, 11, -2],
-  [5, -18, 2],
-  [15, 9, 3],
-  [-16, -8, -3],
-  [8, 14, 2],
-  [-5, -13, -2],
-  [18, 5, 3],
-  [-11, 16, -3],
-  [10, -9, 2],
-  [-17, 7, -3],
-  [4, 17, 1],
-  [14, -13, 3],
-  [-7, 9, -2],
-  [9, -5, 2],
-  [-13, -16, -3],
-  [16, 12, 3],
-  [-8, 6, -2],
-  [6, -10, 2],
-];
+function useViewport() {
+  const [viewport, setViewport] =
+    useState({
+      width: 1440,
+      height: 900,
+      mobile: false,
+    });
 
-export default function Hero() {
-  const [nameHovered, setNameHovered] = useState(false);
-  const [phraseHovered, setPhraseHovered] = useState(false);
+
+  useEffect(() => {
+    function update() {
+      setViewport({
+        width:
+          window.innerWidth,
+
+        height:
+          window.innerHeight,
+
+        mobile:
+          window.innerWidth <=
+          700,
+      });
+    }
+
+
+    update();
+
+
+    window.addEventListener(
+      "resize",
+      update
+    );
+
+
+    return () => {
+      window.removeEventListener(
+        "resize",
+        update
+      );
+    };
+  }, []);
+
+
+  return viewport;
+}
+
+
+/* =========================================================
+   SCATTER TARGET
+========================================================= */
+
+function getScatterTarget({
+  index,
+  total,
+  kind,
+  viewport,
+  pointer,
+}) {
+  const {
+    width,
+    height,
+    mobile,
+  } = viewport;
+
+
+  const goldenAngle =
+    2.399963229728653;
+
+
+  const angle =
+    index *
+      goldenAngle +
+
+    (
+      kind === "name"
+        ? 0.35
+        : 0.82
+    ) +
+
+    pointer.y *
+      0.13 -
+
+    pointer.x *
+      0.1;
+
+
+  const phraseRadiusX =
+    Math.min(
+      width *
+        (
+          mobile
+            ? 0.15
+            : 0.12
+        ),
+
+      mobile
+        ? 72
+        : 145
+    );
+
+
+  const phraseRadiusY =
+    Math.min(
+      height *
+        (
+          mobile
+            ? 0.09
+            : 0.1
+        ),
+
+      mobile
+        ? 62
+        : 92
+    );
+
+
+  const nameRadiusX =
+    Math.min(
+      width *
+        0.035,
+
+      mobile
+        ? 25
+        : 42
+    );
+
+
+  const nameRadiusY =
+    Math.min(
+      height *
+        0.028,
+
+      mobile
+        ? 18
+        : 28
+    );
+
+
+  const radiusX =
+    kind === "name"
+      ? nameRadiusX
+      : phraseRadiusX;
+
+
+  const radiusY =
+    kind === "name"
+      ? nameRadiusY
+      : phraseRadiusY;
+
+
+  const shortWordMultiplier =
+    total <= 2
+      ? 1.12
+      : 1;
+
+
+  const variation =
+    (
+      0.82 +
+      (
+        (
+          index *
+          31
+        )
+        %
+        17
+      )
+      /
+      100
+    )
+    *
+    shortWordMultiplier;
+
+
+  const x =
+    Math.cos(
+      angle
+    )
+    *
+    radiusX
+    *
+    variation
+
+    +
+
+    pointer.x *
+    radiusX *
+    (
+      kind === "name"
+        ? 0.025
+        : 0.055
+    );
+
+
+  const y =
+    Math.sin(
+      angle
+    )
+    *
+    radiusY
+    *
+    variation
+
+    +
+
+    pointer.y *
+    radiusY *
+    (
+      kind === "name"
+        ? 0.025
+        : 0.05
+    );
+
+
+  const rotation =
+    Math.sin(
+      index *
+        1.91 +
+      total
+    )
+
+    *
+
+    (
+      kind === "name"
+        ? 4
+        : 10
+    )
+
+    +
+
+    pointer.x *
+    (
+      kind === "name"
+        ? 1.2
+        : 2.5
+    );
+
+
+  const scale =
+    kind === "name"
+
+      ? (
+          0.99 +
+          (
+            (
+              index *
+              7
+            )
+            %
+            4
+          )
+          /
+          100
+        )
+
+      : (
+          0.97 +
+          (
+            (
+              index *
+              11 +
+              total
+            )
+            %
+            7
+          )
+          /
+          100
+        );
+
+
+  return {
+    x,
+    y,
+    rotation,
+    scale,
+  };
+}
+
+
+/* =========================================================
+   INDIVIDUAL LETTER
+========================================================= */
+
+function ScatterLetter({
+  char,
+  index,
+  total,
+  kind,
+  active,
+  pointer,
+  viewport,
+  entranceDelay = 0,
+}) {
+  const reducedMotion =
+    useReducedMotion();
+
+
+  const x =
+    useMotionValue(0);
+
+  const y =
+    useMotionValue(0);
+
+  const rotation =
+    useMotionValue(0);
+
+  const scale =
+    useMotionValue(1);
+
+
+  const spring =
+    kind === "phrase"
+
+      ? {
+          stiffness: 52,
+          damping: 16,
+          mass: 0.88,
+        }
+
+      : {
+          stiffness: 58,
+          damping: 19,
+          mass: 0.82,
+        };
+
+
+  const smoothX =
+    useSpring(
+      x,
+      spring
+    );
+
+
+  const smoothY =
+    useSpring(
+      y,
+      spring
+    );
+
+
+  const smoothRotation =
+    useSpring(
+      rotation,
+      spring
+    );
+
+
+  const smoothScale =
+    useSpring(
+      scale,
+      spring
+    );
+
+
+  useEffect(() => {
+    if (
+      reducedMotion
+    ) {
+      x.set(0);
+      y.set(0);
+      rotation.set(0);
+      scale.set(1);
+
+      return;
+    }
+
+
+    if (
+      active
+    ) {
+      const target =
+        getScatterTarget({
+          index,
+          total,
+          kind,
+          viewport,
+          pointer,
+        });
+
+
+      x.set(
+        target.x
+      );
+
+      y.set(
+        target.y
+      );
+
+      rotation.set(
+        target.rotation
+      );
+
+      scale.set(
+        target.scale
+      );
+    }
+
+    else {
+      x.set(0);
+      y.set(0);
+      rotation.set(0);
+      scale.set(1);
+    }
+
+  }, [
+    active,
+    pointer.x,
+    pointer.y,
+    index,
+    total,
+    kind,
+    viewport,
+    reducedMotion,
+    x,
+    y,
+    rotation,
+    scale,
+  ]);
+
 
   return (
-    <section className="hero">
+    <motion.span
+      className={`
+        hero-letter
+        hero-letter-${kind}
+      `}
 
-      {/* AMARILLO NARANJA REVEAL */}
-      <div className="hero-reveal">
-        <div className="grain" />
-        <div className="light-leak" />
+      data-active={
+        active
+          ? "true"
+          : "false"
+      }
 
-        <div className="hero-content">
+      style={{
+        x:
+          smoothX,
 
-          {/* PRATYUSHA */}
+        y:
+          smoothY,
+
+        rotate:
+          smoothRotation,
+
+        scale:
+          smoothScale,
+      }}
+    >
+
+      <motion.span
+        className="
+          hero-letter-inner
+        "
+
+        initial={{
+          opacity: 0,
+
+          y: 10,
+
+          filter:
+            "blur(5px)",
+        }}
+
+        animate={{
+          opacity: 1,
+
+          y: 0,
+
+          filter:
+            "blur(0px)",
+        }}
+
+        transition={{
+          delay:
+            entranceDelay,
+
+          duration:
+            0.78,
+
+          ease: [
+            0.16,
+            1,
+            0.3,
+            1,
+          ],
+        }}
+      >
+
+        <span
+          className="
+            hero-letter-face
+          "
+        >
+          {char}
+        </span>
+
+      </motion.span>
+
+    </motion.span>
+  );
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+export default function Hero() {
+  const heroRef =
+    useRef(null);
+
+
+  const viewport =
+    useViewport();
+
+
+  const reducedMotion =
+    useReducedMotion();
+
+
+  const [
+    nameActive,
+    setNameActive,
+  ] =
+    useState(false);
+
+
+  const [
+    activeWord,
+    setActiveWord,
+  ] =
+    useState(null);
+
+
+  const [
+    pointer,
+    setPointer,
+  ] =
+    useState({
+      x: 0,
+      y: 0,
+    });
+
+
+  /* =======================================================
+     POINTER POSITION
+  ======================================================= */
+
+  function updatePointer(
+    event
+  ) {
+    if (
+      !heroRef.current
+    ) {
+      return;
+    }
+
+
+    const rect =
+      heroRef.current
+        .getBoundingClientRect();
+
+
+    const localX =
+      event.clientX -
+      rect.left;
+
+
+    const localY =
+      event.clientY -
+      rect.top;
+
+
+    setPointer({
+      x:
+        (
+          localX /
+          rect.width
+        )
+        *
+        2
+        -
+        1,
+
+      y:
+        (
+          localY /
+          rect.height
+        )
+        *
+        2
+        -
+        1,
+    });
+  }
+
+
+  /* =======================================================
+     NAME INTERACTION
+  ======================================================= */
+
+  function namePointerEnter(
+    event
+  ) {
+    if (
+      event.pointerType ===
+      "mouse"
+    ) {
+      setNameActive(
+        true
+      );
+
+      updatePointer(
+        event
+      );
+    }
+  }
+
+
+  function namePointerMove(
+    event
+  ) {
+    if (
+      nameActive
+    ) {
+      updatePointer(
+        event
+      );
+    }
+  }
+
+
+  function namePointerDown(
+    event
+  ) {
+    setNameActive(
+      true
+    );
+
+
+    updatePointer(
+      event
+    );
+
+
+    try {
+      event.currentTarget
+        .setPointerCapture(
+          event.pointerId
+        );
+    }
+
+    catch {
+      // optional
+    }
+  }
+
+
+  function namePointerUp(
+    event
+  ) {
+    if (
+      event.pointerType !==
+      "mouse"
+    ) {
+      setNameActive(
+        false
+      );
+    }
+
+
+    try {
+      event.currentTarget
+        .releasePointerCapture(
+          event.pointerId
+        );
+    }
+
+    catch {
+      // already released
+    }
+  }
+
+
+  /* =======================================================
+     WORD INTERACTION
+  ======================================================= */
+
+  function wordPointerEnter(
+    event,
+    wordIndex
+  ) {
+    if (
+      event.pointerType ===
+      "mouse"
+    ) {
+      setActiveWord(
+        wordIndex
+      );
+
+      updatePointer(
+        event
+      );
+    }
+  }
+
+
+  function wordPointerMove(
+    event,
+    wordIndex
+  ) {
+    if (
+      activeWord ===
+      wordIndex
+    ) {
+      updatePointer(
+        event
+      );
+    }
+  }
+
+
+  function wordPointerLeave(
+    event,
+    wordIndex
+  ) {
+    if (
+      event.pointerType ===
+      "mouse"
+    ) {
+      setActiveWord(
+        (current) =>
+          current ===
+          wordIndex
+            ? null
+            : current
+      );
+    }
+  }
+
+
+  function wordPointerDown(
+    event,
+    wordIndex
+  ) {
+    setActiveWord(
+      wordIndex
+    );
+
+
+    updatePointer(
+      event
+    );
+
+
+    try {
+      event.currentTarget
+        .setPointerCapture(
+          event.pointerId
+        );
+    }
+
+    catch {
+      // optional
+    }
+  }
+
+
+  function wordPointerUp(
+    event,
+    wordIndex
+  ) {
+    if (
+      event.pointerType !==
+      "mouse"
+    ) {
+      setActiveWord(
+        (current) =>
+          current ===
+          wordIndex
+            ? null
+            : current
+      );
+    }
+
+
+    try {
+      event.currentTarget
+        .releasePointerCapture(
+          event.pointerId
+        );
+    }
+
+    catch {
+      // already released
+    }
+  }
+
+
+  /* =======================================================
+     CHARACTER INDEX
+  ======================================================= */
+
+  function getPhraseCharacterIndex(
+    wordIndex,
+    localIndex
+  ) {
+    let previousCharacters =
+      0;
+
+
+    for (
+      let i = 0;
+      i < wordIndex;
+      i += 1
+    ) {
+      previousCharacters +=
+        PHRASE_WORDS[i].length;
+    }
+
+
+    return (
+      previousCharacters +
+      localIndex
+    );
+  }
+
+
+  /* =======================================================
+     RENDER
+  ======================================================= */
+
+  return (
+    <section
+      ref={
+        heroRef
+      }
+
+      className="
+        hero
+      "
+    >
+
+      {/* =================================================
+          IMAGE + NOIR WORLD
+      ================================================= */}
+
+      <div
+        className="
+          hero-reveal
+        "
+      >
+
+        <div
+          className="
+            grain
+          "
+          aria-hidden="true"
+        />
+
+
+        <div
+          className="
+            light-leak
+          "
+          aria-hidden="true"
+        />
+
+
+        <div
+          className="
+            hero-content
+          "
+        >
+
+          {/* =============================================
+              PHRASE
+          ============================================= */}
+
           <div
-            className="name"
-            aria-label="Pratyusha"
-            onMouseEnter={() => setNameHovered(true)}
-            onMouseLeave={() => setNameHovered(false)}
+            className="
+              hero-phrase
+            "
+
+            aria-label="
+              nothing is never just nothing
+            "
           >
-            {nameLetters.map((letter, i) => {
-              const wander = nameWander[i];
 
-              return (
-                <motion.span
-                  key={i}
-                  initial={{
-                    opacity: 0,
-                    x: letter.x * 4,
-                    y: letter.y * 4,
-                    rotate: letter.r * 2,
-                  }}
-                  animate={
-                    nameHovered
-                      ? {
-                          opacity: 1,
+            {
+              PHRASE_WORDS.map(
+                (
+                  word,
+                  wordIndex
+                ) => {
 
-                          x: [
-                            letter.x,
-                            wander.x,
-                            letter.x + 8,
-                            letter.x,
-                          ],
+                  const wordIsActive =
+                    activeWord ===
+                    wordIndex;
 
-                          y: [
-                            letter.y,
-                            wander.y,
-                            letter.y - 8,
-                            letter.y,
-                          ],
 
-                          rotate: [
-                            letter.r,
-                            wander.r,
-                            -wander.r / 2,
-                            letter.r,
-                          ],
-                        }
-                      : {
-                          opacity: 1,
-                          x: letter.x,
-                          y: letter.y,
-                          rotate: letter.r,
-                        }
-                  }
-                  transition={
-                    nameHovered
-                      ? {
-                          duration: 4.5 + i * 0.18,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                        }
-                      : {
-                          delay: 2.15 + i * 0.06,
-                          duration: 0.9,
-                          ease: [0.16, 1, 0.3, 1],
-                        }
-                  }
-                >
-                  {letter.char}
-                </motion.span>
-              );
-            })}
+                  const wordLength =
+                    word.length;
+
+
+                  return (
+                    <span
+                      className={`
+                        phrase-word
+                        phrase-word-${wordIndex + 1}
+                      `}
+
+                      data-active={
+                        wordIsActive
+                          ? "true"
+                          : "false"
+                      }
+
+                      key={
+                        `${word}-${wordIndex}`
+                      }
+
+                      onPointerEnter={(
+                        event
+                      ) =>
+                        wordPointerEnter(
+                          event,
+                          wordIndex
+                        )
+                      }
+
+                      onPointerMove={(
+                        event
+                      ) =>
+                        wordPointerMove(
+                          event,
+                          wordIndex
+                        )
+                      }
+
+                      onPointerLeave={(
+                        event
+                      ) =>
+                        wordPointerLeave(
+                          event,
+                          wordIndex
+                        )
+                      }
+
+                      onPointerDown={(
+                        event
+                      ) =>
+                        wordPointerDown(
+                          event,
+                          wordIndex
+                        )
+                      }
+
+                      onPointerUp={(
+                        event
+                      ) =>
+                        wordPointerUp(
+                          event,
+                          wordIndex
+                        )
+                      }
+
+                      onPointerCancel={() =>
+                        setActiveWord(
+                          null
+                        )
+                      }
+                    >
+
+                      {
+                        word
+                          .split("")
+                          .map(
+                            (
+                              char,
+                              localIndex
+                            ) => {
+
+                              const globalIndex =
+                                getPhraseCharacterIndex(
+                                  wordIndex,
+                                  localIndex
+                                );
+
+
+                              return (
+                                <ScatterLetter
+                                  key={
+                                    `${wordIndex}-${localIndex}`
+                                  }
+
+                                  char={
+                                    char
+                                  }
+
+                                  index={
+                                    localIndex
+                                  }
+
+                                  total={
+                                    wordLength
+                                  }
+
+                                  kind="
+                                    phrase
+                                  "
+
+                                  active={
+                                    wordIsActive
+                                  }
+
+                                  pointer={
+                                    pointer
+                                  }
+
+                                  viewport={
+                                    viewport
+                                  }
+
+                                  entranceDelay={
+                                    reducedMotion
+                                      ? 0
+                                      : 1.18 +
+                                        globalIndex *
+                                        0.022
+                                  }
+                                />
+                              );
+                            }
+                          )
+                      }
+
+                    </span>
+                  );
+                }
+              )
+            }
+
           </div>
 
-          {/* NOTHING IS NEVER JUST NOTHING */}
-          <motion.div
-            className="hero-phrase"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 3,
-              duration: 0.9,
-              ease: [0.16, 1, 0.3, 1],
-            }}
-            onMouseEnter={() => setPhraseHovered(true)}
-            onMouseLeave={() => setPhraseHovered(false)}
-          >
-            {phrase.split("").map((char, i) => {
-              const values = phraseScatter[i % phraseScatter.length];
 
-              return (
-                <motion.span
-                  key={i}
-                  animate={
-                    phraseHovered
-                      ? {
-                          x: [
-                            0,
-                            values[0],
-                            values[0] * -0.45,
-                            0,
-                          ],
-                          y: [
-                            0,
-                            values[1],
-                            values[1] * -0.6,
-                            0,
-                          ],
-                          rotate: [
-                            0,
-                            values[2],
-                            -values[2] / 2,
-                            0,
-                          ],
-                        }
-                      : {
-                          x: 0,
-                          y: 0,
-                          rotate: 0,
-                        }
-                  }
-                  transition={
-                    phraseHovered
-                      ? {
-                          duration: 3.7 + (i % 7) * 0.22,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                        }
-                      : {
-                          duration: 0.9,
-                          ease: [0.16, 1, 0.3, 1],
-                        }
-                  }
-                >
-                  {char === " " ? "\u00A0" : char}
-                </motion.span>
-              );
-            })}
-          </motion.div>
+          {/* =============================================
+              PRATYUSHA
+          ============================================= */}
+
+          <div
+            className="
+              name
+            "
+
+            data-active={
+              nameActive
+                ? "true"
+                : "false"
+            }
+
+            aria-label="
+              Pratyusha
+            "
+
+            onPointerEnter={
+              namePointerEnter
+            }
+
+            onPointerMove={
+              namePointerMove
+            }
+
+            onPointerDown={
+              namePointerDown
+            }
+
+            onPointerUp={
+              namePointerUp
+            }
+
+            onPointerCancel={() =>
+              setNameActive(
+                false
+              )
+            }
+
+            onPointerLeave={(
+              event
+            ) => {
+              if (
+                event.pointerType ===
+                "mouse"
+              ) {
+                setNameActive(
+                  false
+                );
+              }
+            }}
+          >
+
+            {
+              NAME
+                .split("")
+                .map(
+                  (
+                    char,
+                    index
+                  ) => (
+
+                    <ScatterLetter
+                      key={
+                        `${char}-${index}`
+                      }
+
+                      char={
+                        char
+                      }
+
+                      index={
+                        index
+                      }
+
+                      total={
+                        NAME.length
+                      }
+
+                      kind="
+                        name
+                      "
+
+                      active={
+                        nameActive
+                      }
+
+                      pointer={
+                        pointer
+                      }
+
+                      viewport={
+                        viewport
+                      }
+
+                      entranceDelay={
+                        reducedMotion
+                          ? 0
+                          : 1 +
+                            index *
+                            0.045
+                      }
+                    />
+
+                  )
+                )
+            }
+
+
+            <span
+              className="
+                name-sparkle
+                name-sparkle-one
+              "
+
+              aria-hidden="true"
+            >
+              ✦
+            </span>
+
+
+            <span
+              className="
+                name-sparkle
+                name-sparkle-two
+              "
+
+              aria-hidden="true"
+            >
+              ✧
+            </span>
+
+
+            <span
+              className="
+                name-sparkle
+                name-sparkle-three
+              "
+
+              aria-hidden="true"
+            >
+              ·
+            </span>
+
+          </div>
 
         </div>
+
       </div>
 
-    {/* HORIZONTAL SCRAPBOOK BLINDS */}
-<div className="blinds">
-  {Array.from({ length: BLINDS }).map((_, i) => (
-    <motion.div
-      key={i}
-      className="blind"
-      style={{
-        top: `${(i / BLINDS) * 100}%`,
-        height: `${100 / BLINDS + 0.2}%`,
 
-        backgroundPosition: `center ${
-          (i / (BLINDS - 1)) * 100
-        }%`,
+      {/* =================================================
+          OPENING BLINDS
+      ================================================= */}
 
-        zIndex: BLINDS - i,
-      }}
-      initial={{
-        rotateX: 0,
-        opacity: 1,
-      }}
-      animate={{
-        rotateX: -105,
-        opacity: 0,
-      }}
-      transition={{
-        delay: 0.8 + i * 0.055,
-        duration: 0.9,
-        ease: [0.76, 0, 0.24, 1],
-      }}
-    />
-  ))}
-</div>
+      <div
+        className="
+          blinds
+        "
+
+        aria-hidden="true"
+      >
+
+        {
+          Array.from({
+            length:
+              BLINDS,
+          }).map(
+            (
+              _,
+              i
+            ) => (
+
+              <motion.div
+                key={
+                  i
+                }
+
+                className="
+                  blind
+                "
+
+                style={{
+                  top:
+                    `${(i / BLINDS) * 100}%`,
+
+                  height:
+                    `${100 / BLINDS + 0.2}%`,
+
+                  backgroundPosition:
+                    `center ${
+                      (
+                        i /
+                        (
+                          BLINDS -
+                          1
+                        )
+                      )
+                      *
+                      100
+                    }%`,
+
+                  zIndex:
+                    BLINDS -
+                    i,
+                }}
+
+                initial={
+                  reducedMotion
+                    ? {
+                        opacity:
+                          0,
+                      }
+
+                    : {
+                        rotateX:
+                          0,
+
+                        opacity:
+                          1,
+                      }
+                }
+
+                animate={{
+                  rotateX:
+                    reducedMotion
+                      ? 0
+                      : -105,
+
+                  opacity:
+                    0,
+                }}
+
+                transition={{
+                  delay:
+                    reducedMotion
+                      ? 0
+                      : 0.42 +
+                        i *
+                        0.035,
+
+                  duration:
+                    reducedMotion
+                      ? 0
+                      : 0.88,
+
+                  ease: [
+                    0.76,
+                    0,
+                    0.24,
+                    1,
+                  ],
+                }}
+              />
+
+            )
+          )
+        }
+
+      </div>
 
     </section>
   );

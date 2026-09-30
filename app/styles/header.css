@@ -1,0 +1,2600 @@
+/* =========================================================
+   HEADER FONT LIBRARY
+
+   ALL YOUR LOCAL FONTS
+
+   Files expected inside:
+   /public/fonts/
+========================================================= */
+
+@font-face {
+  font-family:
+    "Header 1942";
+
+  src:
+    url("/fonts/1942.ttf")
+    format("truetype");
+
+  font-style:
+    normal;
+
+  font-weight:
+    400;
+
+  font-display:
+    swap;
+}
+
+
+@font-face {
+  font-family:
+    "Header Adventure";
+
+  src:
+    url("/fonts/adventure.ttf")
+    format("truetype");
+
+  font-style:
+    normal;
+
+  font-weight:
+    400;
+
+  font-display:
+    swap;
+}
+
+
+@font-face {
+  font-family:
+    "Header Blue";
+
+  src:
+    url("/fonts/blue.ttf")
+    format("truetype");
+
+  font-style:
+    normal;
+
+  font-weight:
+    400;
+
+  font-display:
+    swap;
+}
+
+
+@font-face {
+  font-family:
+    "Header Coral Pixels";
+
+  src:
+    url("/fonts/CoralPixels.ttf")
+    format("truetype");
+
+  font-style:
+    normal;
+
+  font-weight:
+    400;
+
+  font-display:
+    swap;
+}
+
+
+@font-face {
+  font-family:
+    "Header Drawn";
+
+  src:
+    url("/fonts/drawn.otf")
+    format("opentype");
+
+  font-style:
+    normal;
+
+  font-weight:
+    400;
+
+  font-display:
+    swap;
+}
+
+
+@font-face {
+  font-family:
+    "Header Gridtile";
+
+  src:
+    url("/fonts/gridtile.otf")
+    format("opentype");
+
+  font-style:
+    normal;
+
+  font-weight:
+    400;
+
+  font-display:
+    swap;
+}
+
+
+@font-face {
+  font-family:
+    "Header Hollow";
+
+  src:
+    url("/fonts/hollow.ttf")
+    format("truetype");
+
+  font-style:
+    normal;
+
+  font-weight:
+    400;
+
+  font-display:
+    swap;
+}
+
+
+@font-face {
+  font-family:
+    "Header Hooey";
+
+  src:
+    url("/fonts/hooey.otf")
+    format("opentype");
+
+  font-style:
+    normal;
+
+  font-weight:
+    400;
+
+  font-display:
+    swap;
+}
+
+
+@font-face {
+  font-family:
+    "Header Hugh Is Life";
+
+  src:
+    url("/fonts/hughislife.ttf")
+    format("truetype");
+
+  font-style:
+    normal;
+
+  font-weight:
+    400;
+
+  font-display:
+    swap;
+}
+
+
+@font-face {
+  font-family:
+    "Header Manasp";
+
+  src:
+    url("/fonts/manasp.ttf")
+    format("truetype");
+
+  font-style:
+    normal;
+
+  font-weight:
+    400;
+
+  font-display:
+    swap;
+}
+
+
+@font-face {
+  font-family:
+    "Header Midnight Munch";
+
+  src:
+    url("/fonts/midnightmunch.otf")
+    format("opentype");
+
+  font-style:
+    normal;
+
+  font-weight:
+    400;
+
+  font-display:
+    swap;
+}
+
+
+@font-face {
+  font-family:
+    "Header Milestone";
+
+  src:
+    url("/fonts/milestone.otf")
+    format("opentype");
+
+  font-style:
+    normal;
+
+  font-weight:
+    400;
+
+  font-display:
+    swap;
+}
+
+
+@font-face {
+  font-family:
+    "Header Monashark";
+
+  src:
+    url("/fonts/monashark.ttf")
+    format("truetype");
+
+  font-style:
+    normal;
+
+  font-weight:
+    400;
+
+  font-display:
+    swap;
+}
+
+
+@font-face {
+  font-family:
+    "Header Mustasurma";
+
+  src:
+    url("/fonts/mustasurma.ttf")
+    format("truetype");
+
+  font-style:
+    normal;
+
+  font-weight:
+    400;
+
+  font-display:
+    swap;
+}
+
+
+@font-face {
+  font-family:
+    "Header Punktype";
+
+  src:
+    url("/fonts/punktype.ttf")
+    format("truetype");
+
+  font-style:
+    normal;
+
+  font-weight:
+    400;
+
+  font-display:
+    swap;
+}
+
+
+@font-face {
+  font-family:
+    "Header Relsika";
+
+  src:
+    url("/fonts/relsika.otf")
+    format("opentype");
+
+  font-style:
+    normal;
+
+  font-weight:
+    400;
+
+  font-display:
+    swap;
+}
+
+
+@font-face {
+  font-family:
+    "Header Sans Serif Shaded";
+
+  src:
+    url("/fonts/sansserifshaded.ttf")
+    format("truetype");
+
+  font-style:
+    normal;
+
+  font-weight:
+    400;
+
+  font-display:
+    swap;
+}
+
+
+@font-face {
+  font-family:
+    "Header Saphile Stamp";
+
+  src:
+    url("/fonts/saphilestamp.otf")
+    format("opentype");
+
+  font-style:
+    normal;
+
+  font-weight:
+    400;
+
+  font-display:
+    swap;
+}
+
+
+@font-face {
+  font-family:
+    "Header Tracker Clock";
+
+  src:
+    url("/fonts/trackerclock.otf")
+    format("opentype");
+
+  font-style:
+    normal;
+
+  font-weight:
+    400;
+
+  font-display:
+    swap;
+}
+
+
+@font-face {
+  font-family:
+    "Header Xero4";
+
+  src:
+    url("/fonts/xero4.ttf")
+    format("truetype");
+
+  font-style:
+    normal;
+
+  font-weight:
+    400;
+
+  font-display:
+    swap;
+}
+
+
+/* =========================================================
+   SITE HEADER
+
+   INITIAL:
+   CURVED BLACK NOIR GLASS
+
+   SCROLLED:
+   TRANSPARENT SHELL
+========================================================= */
+
+.site-header {
+  position:
+    fixed;
+
+  z-index:
+    8000;
+
+  top:
+    0;
+
+  left:
+    0;
+
+  width:
+    100%;
+
+  padding:
+    1rem
+    clamp(
+      1rem,
+      2.6vw,
+      2.5rem
+    )
+    0;
+
+  pointer-events:
+    none;
+}
+
+
+/* =========================================================
+   HEADER SHELL
+========================================================= */
+
+.site-header-shell {
+  position:
+    relative;
+
+  width:
+    min(
+      1180px,
+      100%
+    );
+
+  min-height:
+    66px;
+
+  margin:
+    0
+    auto;
+
+  padding:
+    0.55rem
+    0.65rem
+    0.55rem
+    0.75rem;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    1rem;
+
+  overflow:
+    hidden;
+
+  border:
+    1px
+    solid
+    rgba(
+      255,
+      255,
+      255,
+      0.11
+    );
+
+  border-radius:
+    28px;
+
+  background:
+
+    radial-gradient(
+      circle
+      at
+      18%
+      0%,
+
+      rgba(
+        255,
+        255,
+        255,
+        0.08
+      ),
+
+      transparent
+      28%
+    ),
+
+    linear-gradient(
+      145deg,
+
+      rgba(
+        8,
+        8,
+        10,
+        0.96
+      ),
+
+      rgba(
+        2,
+        2,
+        4,
+        0.9
+      )
+    );
+
+  box-shadow:
+
+    0
+    18px
+    60px
+    rgba(
+      0,
+      0,
+      0,
+      0.28
+    ),
+
+    inset
+    0
+    1px
+    0
+    rgba(
+      255,
+      255,
+      255,
+      0.05
+    );
+
+  backdrop-filter:
+    blur(
+      20px
+    )
+    saturate(
+      1.08
+    );
+
+  -webkit-backdrop-filter:
+    blur(
+      20px
+    )
+    saturate(
+      1.08
+    );
+
+  pointer-events:
+    auto;
+
+  transition:
+
+    background
+    0.45s
+    ease,
+
+    border-color
+    0.45s
+    ease,
+
+    box-shadow
+    0.45s
+    ease,
+
+    backdrop-filter
+    0.45s
+    ease;
+}
+
+
+/* =========================================================
+   GLASS SWEEP
+========================================================= */
+
+.site-header-shell::after {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  border-radius:
+    inherit;
+
+  pointer-events:
+    none;
+
+  background:
+    linear-gradient(
+      120deg,
+
+      transparent
+      12%,
+
+      rgba(
+        255,
+        255,
+        255,
+        0.04
+      )
+      40%,
+
+      transparent
+      62%
+    );
+
+  transform:
+    translateX(
+      -70%
+    );
+
+  transition:
+    transform
+    0.8s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    );
+}
+
+
+.site-header-shell:hover::after {
+  transform:
+    translateX(
+      72%
+    );
+}
+
+
+/* =========================================================
+   TRANSPARENT AFTER SCROLL
+========================================================= */
+
+.site-header-scrolled
+.site-header-shell {
+  background:
+    rgba(
+      6,
+      7,
+      9,
+      0.04
+    );
+
+  border-color:
+    transparent;
+
+  box-shadow:
+    none;
+
+  backdrop-filter:
+    blur(
+      2px
+    );
+
+  -webkit-backdrop-filter:
+    blur(
+      2px
+    );
+}
+
+
+/* =========================================================
+   GLASS LENS BRAND
+========================================================= */
+
+.site-brand {
+  position:
+    relative;
+
+  z-index:
+    4;
+
+  width:
+    42px;
+
+  height:
+    42px;
+
+  flex:
+    0
+    0
+    42px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  text-decoration:
+    none;
+
+  color:
+    rgba(
+      240,
+      247,
+      255,
+      0.96
+    );
+}
+
+
+/* =========================================================
+   BRAND OUTER GLOW
+========================================================= */
+
+.site-brand-glow {
+  position:
+    absolute;
+
+  z-index:
+    0;
+
+  width:
+    54px;
+
+  height:
+    54px;
+
+  left:
+    50%;
+
+  top:
+    50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  border-radius:
+    50%;
+
+  pointer-events:
+    none;
+
+  opacity:
+    0.44;
+
+  filter:
+    blur(
+      17px
+    );
+
+  background:
+    radial-gradient(
+      circle,
+
+      rgba(
+        117,
+        181,
+        247,
+        0.22
+      )
+      0%,
+
+      rgba(
+        66,
+        126,
+        197,
+        0.08
+      )
+      42%,
+
+      transparent
+      72%
+    );
+
+  transition:
+
+    opacity
+    0.4s
+    ease,
+
+    transform
+    0.45s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    );
+}
+
+
+/* =========================================================
+   ACTUAL BRAND LENS
+========================================================= */
+
+.site-brand-mark {
+  position:
+    relative;
+
+  z-index:
+    2;
+
+  width:
+    40px;
+
+  height:
+    40px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  overflow:
+    hidden;
+
+  border:
+    1px
+    solid
+    rgba(
+      211,
+      230,
+      250,
+      0.22
+    );
+
+  border-radius:
+    50%;
+
+  background:
+
+    radial-gradient(
+      circle
+      at
+      28%
+      18%,
+
+      rgba(
+        255,
+        255,
+        255,
+        0.2
+      )
+      0%,
+
+      rgba(
+        255,
+        255,
+        255,
+        0.07
+      )
+      17%,
+
+      transparent
+      38%
+    ),
+
+    radial-gradient(
+      circle
+      at
+      67%
+      72%,
+
+      rgba(
+        76,
+        140,
+        211,
+        0.14
+      )
+      0%,
+
+      transparent
+      48%
+    ),
+
+    linear-gradient(
+      145deg,
+
+      rgba(
+        41,
+        67,
+        94,
+        0.45
+      ),
+
+      rgba(
+        6,
+        14,
+        25,
+        0.3
+      )
+    );
+
+  box-shadow:
+
+    inset
+    0
+    1px
+    0
+    rgba(
+      255,
+      255,
+      255,
+      0.16
+    ),
+
+    inset
+    0
+    0
+    18px
+    rgba(
+      129,
+      182,
+      236,
+      0.06
+    ),
+
+    0
+    9px
+    28px
+    rgba(
+      0,
+      3,
+      12,
+      0.25
+    ),
+
+    0
+    0
+    26px
+    rgba(
+      72,
+      137,
+      211,
+      0.09
+    );
+
+  backdrop-filter:
+    blur(
+      18px
+    )
+    saturate(
+      1.35
+    );
+
+  -webkit-backdrop-filter:
+    blur(
+      18px
+    )
+    saturate(
+      1.35
+    );
+
+  transition:
+
+    transform
+    0.4s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    ),
+
+    border-color
+    0.35s
+    ease,
+
+    box-shadow
+    0.4s
+    ease;
+}
+
+
+/* internal optical ring */
+
+.site-brand-mark::before {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  inset:
+    4px;
+
+  border:
+    1px
+    solid
+    rgba(
+      225,
+      239,
+      255,
+      0.09
+    );
+
+  border-radius:
+    inherit;
+
+  pointer-events:
+    none;
+}
+
+
+/* glass reflection */
+
+.site-brand-mark::after {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  width:
+    45%;
+
+  height:
+    17%;
+
+  left:
+    17%;
+
+  top:
+    13%;
+
+  border-radius:
+    999px;
+
+  transform:
+    rotate(
+      -30deg
+    );
+
+  filter:
+    blur(
+      2px
+    );
+
+  pointer-events:
+    none;
+
+  opacity:
+    0.5;
+
+  background:
+    linear-gradient(
+      to right,
+
+      transparent,
+
+      rgba(
+        255,
+        255,
+        255,
+        0.68
+      ),
+
+      transparent
+    );
+}
+
+
+/* =========================================================
+   BRAND CHARACTER
+
+   FONT COMES FROM HEADER_FONTS.brand
+========================================================= */
+
+.site-brand-mark > span {
+  position:
+    relative;
+
+  z-index:
+    4;
+
+  transform:
+    translateY(
+      -1px
+    );
+
+  font-family:
+    var(
+      --header-brand-font
+    ),
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    1.15rem;
+
+  font-style:
+    normal;
+
+  font-weight:
+    400;
+
+  line-height:
+    1;
+
+  color:
+    rgba(
+      241,
+      248,
+      255,
+      0.95
+    );
+
+  text-shadow:
+    0
+    0
+    13px
+    rgba(
+      155,
+      203,
+      250,
+      0.25
+    );
+}
+
+
+/* =========================================================
+   BRAND HOVER
+========================================================= */
+
+.site-brand:hover
+.site-brand-glow {
+  opacity:
+    0.9;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    )
+    scale(
+      1.15
+    );
+}
+
+
+.site-brand:hover
+.site-brand-mark {
+  transform:
+    translateY(
+      -1px
+    )
+    scale(
+      1.055
+    );
+
+  border-color:
+    rgba(
+      214,
+      235,
+      255,
+      0.42
+    );
+
+  box-shadow:
+
+    inset
+    0
+    1px
+    0
+    rgba(
+      255,
+      255,
+      255,
+      0.2
+    ),
+
+    inset
+    0
+    0
+    18px
+    rgba(
+      128,
+      187,
+      247,
+      0.09
+    ),
+
+    0
+    10px
+    32px
+    rgba(
+      0,
+      4,
+      14,
+      0.28
+    ),
+
+    0
+    0
+    34px
+    rgba(
+      84,
+      154,
+      232,
+      0.18
+    );
+}
+
+
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
+
+.site-nav-desktop {
+  position:
+    relative;
+
+  z-index:
+    4;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    0.45rem;
+}
+
+
+/* =========================================================
+   NAV BUTTON
+========================================================= */
+
+.site-nav-link {
+  position:
+    relative;
+
+  min-height:
+    44px;
+
+  padding:
+    0
+    1.05rem;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  overflow:
+    hidden;
+
+  border:
+    1px
+    solid
+    rgba(
+      255,
+      255,
+      255,
+      0.1
+    );
+
+  border-radius:
+    999px;
+
+  color:
+    rgba(
+      245,
+      246,
+      243,
+      0.78
+    );
+
+  text-decoration:
+    none;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.045
+    );
+
+  box-shadow:
+
+    inset
+    0
+    1px
+    0
+    rgba(
+      255,
+      255,
+      255,
+      0.05
+    ),
+
+    0
+    8px
+    24px
+    rgba(
+      0,
+      0,
+      0,
+      0.08
+    );
+
+  backdrop-filter:
+    blur(
+      18px
+    )
+    saturate(
+      1.2
+    );
+
+  -webkit-backdrop-filter:
+    blur(
+      18px
+    )
+    saturate(
+      1.2
+    );
+
+  transition:
+
+    transform
+    0.35s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    ),
+
+    color
+    0.3s
+    ease,
+
+    border-color
+    0.3s
+    ease,
+
+    background
+    0.3s
+    ease,
+
+    box-shadow
+    0.35s
+    ease;
+}
+
+
+/* subtle internal glow */
+
+.site-nav-link::before {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  width:
+    75px;
+
+  height:
+    75px;
+
+  left:
+    -30px;
+
+  top:
+    -38px;
+
+  border-radius:
+    50%;
+
+  pointer-events:
+    none;
+
+  opacity:
+    0;
+
+  filter:
+    blur(
+      23px
+    );
+
+  background:
+    rgba(
+      140,
+      186,
+      237,
+      0.15
+    );
+
+  transition:
+    opacity
+    0.3s
+    ease;
+}
+
+
+/* =========================================================
+   SCROLLED NAV
+========================================================= */
+
+.site-header-scrolled
+.site-nav-link {
+  background:
+    rgba(
+      7,
+      8,
+      10,
+      0.22
+    );
+
+  border-color:
+    rgba(
+      255,
+      255,
+      255,
+      0.13
+    );
+}
+
+
+/* =========================================================
+   NAV HOVER / ACTIVE
+========================================================= */
+
+.site-nav-link:hover,
+.site-nav-link-active {
+  transform:
+    translateY(
+      -2px
+    );
+
+  color:
+    #ffffff;
+
+  border-color:
+    rgba(
+      219,
+      235,
+      251,
+      0.25
+    );
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.09
+    );
+
+  box-shadow:
+
+    inset
+    0
+    1px
+    0
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    ),
+
+    0
+    8px
+    28px
+    rgba(
+      0,
+      0,
+      0,
+      0.1
+    ),
+
+    0
+    0
+    25px
+    rgba(
+      90,
+      150,
+      218,
+      0.08
+    );
+}
+
+
+.site-nav-link:hover::before,
+.site-nav-link-active::before {
+  opacity:
+    1;
+}
+
+
+/* =========================================================
+   DESKTOP NAV LABEL
+
+   FONT COMES FROM HEADER_FONTS.desktopNav
+========================================================= */
+
+.site-nav-label {
+  position:
+    relative;
+
+  z-index:
+    2;
+
+  font-family:
+    var(
+      --header-desktop-nav-font
+    ),
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size:
+    0.7rem;
+
+  font-weight:
+    400;
+
+  letter-spacing:
+    0.1em;
+
+  text-transform:
+    uppercase;
+}
+
+
+/* =========================================================
+   MOBILE ELEMENTS HIDDEN ON DESKTOP
+========================================================= */
+
+.site-menu-button {
+  display:
+    none;
+}
+
+
+.site-mobile-menu-wrap {
+  display:
+    none;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (
+  max-width:
+    760px
+) {
+
+  .site-header {
+    padding:
+      0.8rem
+      0.8rem
+      0;
+  }
+
+
+  .site-header-shell {
+    min-height:
+      60px;
+
+    padding:
+      0.48rem
+      0.5rem
+      0.48rem
+      0.58rem;
+
+    border-radius:
+      24px;
+  }
+
+
+  .site-nav-desktop {
+    display:
+      none;
+  }
+
+
+  .site-brand {
+    width:
+      38px;
+
+    height:
+      38px;
+
+    flex-basis:
+      38px;
+  }
+
+
+  .site-brand-mark {
+    width:
+      36px;
+
+    height:
+      36px;
+  }
+
+
+  .site-brand-mark > span {
+    font-size:
+      1.05rem;
+  }
+
+
+  /* =======================================================
+     HAMBURGER
+  ======================================================= */
+
+  .site-menu-button {
+    position:
+      relative;
+
+    z-index:
+      4;
+
+    width:
+      44px;
+
+    height:
+      44px;
+
+    flex:
+      0
+      0
+      44px;
+
+    display:
+      grid;
+
+    place-items:
+      center;
+
+    overflow:
+      hidden;
+
+    padding:
+      0;
+
+    border:
+      1px
+      solid
+      rgba(
+        255,
+        255,
+        255,
+        0.14
+      );
+
+    border-radius:
+      50%;
+
+    background:
+      rgba(
+        255,
+        255,
+        255,
+        0.07
+      );
+
+    color:
+      #ffffff;
+
+    box-shadow:
+      inset
+      0
+      1px
+      0
+      rgba(
+        255,
+        255,
+        255,
+        0.05
+      );
+
+    backdrop-filter:
+      blur(
+        16px
+      )
+      saturate(
+        1.2
+      );
+
+    -webkit-backdrop-filter:
+      blur(
+        16px
+      )
+      saturate(
+        1.2
+      );
+
+    cursor:
+      pointer;
+  }
+
+
+  .site-menu-button-glow {
+    position:
+      absolute;
+
+    inset:
+      -35%;
+
+    border-radius:
+      50%;
+
+    pointer-events:
+      none;
+
+    opacity:
+      0;
+
+    background:
+      radial-gradient(
+        circle,
+
+        rgba(
+          130,
+          183,
+          240,
+          0.2
+        ),
+
+        transparent
+        58%
+      );
+
+    transition:
+      opacity
+      0.3s
+      ease;
+  }
+
+
+  .site-menu-button:hover
+  .site-menu-button-glow,
+
+  .site-header-menu-open
+  .site-menu-button-glow {
+    opacity:
+      1;
+  }
+
+
+  .site-menu-icon {
+    position:
+      relative;
+
+    width:
+      18px;
+
+    height:
+      14px;
+  }
+
+
+  .site-menu-icon i {
+    position:
+      absolute;
+
+    left:
+      0;
+
+    width:
+      18px;
+
+    height:
+      1px;
+
+    border-radius:
+      999px;
+
+    background:
+      currentColor;
+
+    transform-origin:
+      center;
+
+    transition:
+
+      top
+      0.32s
+      cubic-bezier(
+        0.16,
+        1,
+        0.3,
+        1
+      ),
+
+      transform
+      0.32s
+      cubic-bezier(
+        0.16,
+        1,
+        0.3,
+        1
+      );
+  }
+
+
+  .site-menu-icon i:first-child {
+    top:
+      3px;
+  }
+
+
+  .site-menu-icon i:last-child {
+    top:
+      10px;
+  }
+
+
+  .site-menu-icon.is-open
+  i:first-child {
+    top:
+      6.5px;
+
+    transform:
+      rotate(
+        45deg
+      );
+  }
+
+
+  .site-menu-icon.is-open
+  i:last-child {
+    top:
+      6.5px;
+
+    transform:
+      rotate(
+        -45deg
+      );
+  }
+
+
+  /* =======================================================
+     MOBILE MENU WRAPPER
+  ======================================================= */
+
+  .site-mobile-menu-wrap {
+    display:
+      block;
+
+    width:
+      min(
+        100%,
+        560px
+      );
+
+    margin:
+      0.6rem
+      auto
+      0;
+
+    pointer-events:
+      auto;
+  }
+
+
+  /* =======================================================
+     MOBILE GLASS PANEL
+  ======================================================= */
+
+  .site-mobile-menu {
+    position:
+      relative;
+
+    overflow:
+      hidden;
+
+    padding:
+      1rem;
+
+    border:
+      1px
+      solid
+      rgba(
+        255,
+        255,
+        255,
+        0.13
+      );
+
+    border-radius:
+      28px;
+
+    background:
+
+      radial-gradient(
+        circle
+        at
+        20%
+        0%,
+
+        rgba(
+          255,
+          255,
+          255,
+          0.09
+        ),
+
+        transparent
+        30%
+      ),
+
+      rgba(
+        6,
+        7,
+        9,
+        0.74
+      );
+
+    box-shadow:
+      0
+      24px
+      80px
+      rgba(
+        0,
+        0,
+        0,
+        0.38
+      );
+
+    backdrop-filter:
+      blur(
+        30px
+      )
+      saturate(
+        1.3
+      );
+
+    -webkit-backdrop-filter:
+      blur(
+        30px
+      )
+      saturate(
+        1.3
+      );
+  }
+
+
+  .site-mobile-menu::after {
+    content:
+      "";
+
+    position:
+      absolute;
+
+    width:
+      180px;
+
+    height:
+      180px;
+
+    right:
+      -90px;
+
+    bottom:
+      -80px;
+
+    border-radius:
+      50%;
+
+    pointer-events:
+      none;
+
+    filter:
+      blur(
+        36px
+      );
+
+    background:
+      rgba(
+        100,
+        158,
+        224,
+        0.08
+      );
+  }
+
+
+  /* =======================================================
+     MOBILE MENU HEADING
+
+     FONT COMES FROM HEADER_FONTS.mobileHeading
+  ======================================================= */
+
+  .site-mobile-menu-heading {
+    display:
+      flex;
+
+    justify-content:
+      space-between;
+
+    gap:
+      1rem;
+
+    margin-bottom:
+      0.75rem;
+
+    color:
+      rgba(
+        245,
+        246,
+        243,
+        0.48
+      );
+
+    font-family:
+      var(
+        --header-mobile-heading-font
+      ),
+      Georgia,
+      "Times New Roman",
+      serif;
+
+    font-size:
+      0.64rem;
+
+    font-style:
+      normal;
+
+    font-weight:
+      400;
+
+    letter-spacing:
+      0.04em;
+  }
+
+
+  /* =======================================================
+     MOBILE NAV
+  ======================================================= */
+
+  .site-mobile-nav {
+    display:
+      flex;
+
+    flex-direction:
+      column;
+
+    gap:
+      0.58rem;
+  }
+
+
+  .site-mobile-link {
+    position:
+      relative;
+
+    min-height:
+      76px;
+
+    padding:
+      0.9rem
+      1rem;
+
+    display:
+      grid;
+
+    grid-template-columns:
+      1fr
+      auto;
+
+    align-items:
+      center;
+
+    gap:
+      0.95rem;
+
+    overflow:
+      hidden;
+
+    border:
+      1px
+      solid
+      rgba(
+        255,
+        255,
+        255,
+        0.1
+      );
+
+    border-radius:
+      22px;
+
+    color:
+      rgba(
+        250,
+        250,
+        247,
+        0.92
+      );
+
+    text-decoration:
+      none;
+
+    background:
+      rgba(
+        255,
+        255,
+        255,
+        0.045
+      );
+
+    box-shadow:
+      inset
+      0
+      1px
+      0
+      rgba(
+        255,
+        255,
+        255,
+        0.045
+      );
+
+    transition:
+
+      background
+      0.3s
+      ease,
+
+      border-color
+      0.3s
+      ease;
+  }
+
+
+  .site-mobile-link::before {
+    content:
+      "";
+
+    position:
+      absolute;
+
+    width:
+      130px;
+
+    height:
+      130px;
+
+    left:
+      -52px;
+
+    top:
+      -60px;
+
+    border-radius:
+      50%;
+
+    pointer-events:
+      none;
+
+    opacity:
+      0;
+
+    filter:
+      blur(
+        32px
+      );
+
+    background:
+      rgba(
+        110,
+        170,
+        234,
+        0.12
+      );
+
+    transition:
+      opacity
+      0.3s
+      ease;
+  }
+
+
+  .site-mobile-link-active,
+  .site-mobile-link:active {
+    border-color:
+      rgba(
+        214,
+        232,
+        251,
+        0.2
+      );
+
+    background:
+      rgba(
+        255,
+        255,
+        255,
+        0.085
+      );
+  }
+
+
+  .site-mobile-link-active::before {
+    opacity:
+      1;
+  }
+
+
+  /* =======================================================
+     MOBILE NAV LABEL
+
+     FONT COMES FROM HEADER_FONTS.mobileNav
+  ======================================================= */
+
+  .site-mobile-link-label {
+    position:
+      relative;
+
+    z-index:
+      2;
+
+    font-family:
+      var(
+        --header-mobile-nav-font
+      ),
+      Arial,
+      Helvetica,
+      sans-serif;
+
+    font-size:
+      clamp(
+        1.25rem,
+        6vw,
+        1.8rem
+      );
+
+    font-weight:
+      400;
+
+    letter-spacing:
+      -0.04em;
+  }
+
+
+  .site-mobile-link-arrow {
+    position:
+      relative;
+
+    z-index:
+      2;
+
+    width:
+      34px;
+
+    height:
+      34px;
+
+    display:
+      grid;
+
+    place-items:
+      center;
+
+    border:
+      1px
+      solid
+      rgba(
+        255,
+        255,
+        255,
+        0.12
+      );
+
+    border-radius:
+      50%;
+
+    background:
+      rgba(
+        255,
+        255,
+        255,
+        0.05
+      );
+
+    font-size:
+      0.85rem;
+  }
+
+
+  /* =======================================================
+     MOBILE NOTE
+
+     FONT COMES FROM HEADER_FONTS.mobileNote
+  ======================================================= */
+
+  .site-mobile-menu-note {
+    margin:
+      1rem
+      0
+      0;
+
+    color:
+      rgba(
+        244,
+        245,
+        242,
+        0.42
+      );
+
+    font-family:
+      var(
+        --header-mobile-note-font
+      ),
+      Georgia,
+      "Times New Roman",
+      serif;
+
+    font-size:
+      0.68rem;
+
+    font-style:
+      normal;
+
+    font-weight:
+      400;
+
+    text-align:
+      right;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (
+  max-width:
+    390px
+) {
+
+  .site-mobile-link {
+    min-height:
+      70px;
+  }
+
+
+  .site-brand {
+    width:
+      36px;
+
+    height:
+      36px;
+
+    flex-basis:
+      36px;
+  }
+
+
+  .site-brand-mark {
+    width:
+      34px;
+
+    height:
+      34px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+  prefers-reduced-motion:
+    reduce
+) {
+
+  .site-header-shell,
+  .site-header-shell::after,
+  .site-brand-mark,
+  .site-brand-glow,
+  .site-nav-link,
+  .site-menu-icon i,
+  .site-menu-button-glow {
+    transition:
+      none;
+  }
+}
+
+
+/* =========================================================
+   STANDALONE PAGE SAFE AREAS
+========================================================= */
+
+:root {
+  --site-header-safe:
+    88px;
+}
+
+
+/* =========================================================
+   PHOTOS
+========================================================= */
+
+.standalone-page-photos
+.photo-gallery {
+  padding-top:
+    var(
+      --site-header-safe
+    );
+}
+
+
+.standalone-page-photos
+.photo-tabs {
+  top:
+    var(
+      --site-header-safe
+    );
+}
+
+
+.standalone-page-photos
+.photo-stage {
+  height:
+    calc(
+      100svh -
+      72px -
+      var(
+        --site-header-safe
+      )
+    );
+}
+
+
+.standalone-page-photos
+.photo-stage-sticky {
+  top:
+    calc(
+      72px +
+      var(
+        --site-header-safe
+      )
+    );
+}
+
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.standalone-page-projects
+.projects-header {
+  top:
+    calc(
+      var(
+        --site-header-safe
+      )
+      +
+      1rem
+    );
+}
+
+
+/* =========================================================
+   VIDEOS
+========================================================= */
+
+.standalone-page-videos
+.videos {
+  padding-top:
+    calc(
+      var(
+        --site-header-safe
+      )
+      +
+      2.5rem
+    );
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (
+  max-width:
+    800px
+) {
+
+  :root {
+    --site-header-safe:
+      74px;
+  }
+
+
+  .standalone-page-photos
+  .photo-stage {
+    height:
+      auto;
+  }
+
+
+  .standalone-page-photos
+  .photo-stage-sticky {
+    top:
+      calc(
+        62px +
+        var(
+          --site-header-safe
+        )
+      );
+  }
+}
+
+
+/* =========================================================
+   MOBILE PAGE OFFSETS
+========================================================= */
+
+@media (
+  max-width:
+    700px
+) {
+
+  .standalone-page-projects
+  .projects-header {
+    top:
+      calc(
+        var(
+          --site-header-safe
+        )
+        +
+        0.7rem
+      );
+  }
+
+
+  .standalone-page-videos
+  .videos {
+    padding-top:
+      calc(
+        var(
+          --site-header-safe
+        )
+        +
+        1.75rem
+      );
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONE PAGE OFFSETS
+========================================================= */
+
+@media (
+  max-width:
+    390px
+) {
+
+  :root {
+    --site-header-safe:
+      70px;
+  }
+
+
+  .standalone-page-photos
+  .photo-stage-sticky {
+    top:
+      calc(
+        58px +
+        var(
+          --site-header-safe
+        )
+      );
+  }
+}

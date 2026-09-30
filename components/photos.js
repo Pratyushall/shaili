@@ -6,599 +6,1492 @@ import {
 } from "motion/react";
 
 import {
+  useEffect,
   useRef,
   useState,
 } from "react";
 
 
 /* =========================================================
-   10 PHOTOS EACH
+   DESKTOP — HUMANS
+   17 PHOTOS
 ========================================================= */
 
-const someonePhotos = [
-  "/images/photos/someone/one1.jpeg",
-  "/images/photos/someone/one2.jpeg",
-  "/images/photos/someone/one3.jpeg",
-  "/images/photos/someone/one4.jpeg",
-  "/images/photos/someone/one5.jpeg",
-  "/images/photos/someone/one6.jpeg",
-  "/images/photos/someone/one7.jpeg",
-  "/images/photos/someone/one8.jpeg",
-  "/images/photos/someone/one9.jpeg",
-  "/images/photos/someone/one10.jpeg",
-];
-
-const somewherePhotos = [
-  "/images/photos/somewhere/where1.jpeg",
-  "/images/photos/somewhere/where2.jpeg",
-  "/images/photos/somewhere/where3.jpeg",
-  "/images/photos/somewhere/where4.jpeg",
-  "/images/photos/somewhere/where5.jpeg",
-  "/images/photos/somewhere/where6.jpeg",
-  "/images/photos/somewhere/where7.jpeg",
-  "/images/photos/somewhere/where8.jpeg",
-  "/images/photos/somewhere/where9.jpeg",
-  "/images/photos/somewhere/where10.jpeg",
+const desktopSomeonePhotos = [
+  "/images/photos/someone/so1.jpeg",
+  "/images/photos/someone/so2.jpeg",
+  "/images/photos/someone/so3.jpeg",
+  "/images/photos/someone/so4.jpeg",
+  "/images/photos/someone/so5.jpeg",
+  "/images/photos/someone/so6.jpeg",
+  "/images/photos/someone/so7.jpeg",
+  "/images/photos/someone/so8.jpeg",
+  "/images/photos/someone/so9.jpeg",
+  "/images/photos/someone/so10.jpeg",
+  "/images/photos/someone/so11.jpeg",
+  "/images/photos/someone/so12.jpeg",
+  "/images/photos/someone/so13.jpeg",
+  "/images/photos/someone/so14.jpeg",
+  "/images/photos/someone/so15.jpeg",
+  "/images/photos/someone/so16.jpeg",
+  "/images/photos/someone/so17.jpeg",
 ];
 
 
 /* =========================================================
-   PHOTO LAYER
-   colour + black & white copy
+   DESKTOP — NO HUMANS
+   15 PHOTOS
 ========================================================= */
 
-function PhotoLayer({
-  image,
-  opacity,
-  blur,
-  scale,
-  slider,
-  zIndex,
-}) {
-  return (
-    <div
-      className="photo-layer"
-      style={{
-        opacity,
-        filter: `blur(${blur}px)`,
-        transform: `scale(${scale})`,
-        zIndex,
-      }}
-    >
-      {/* COLOUR IMAGE */}
-      <div
-        className="photo-image"
-        style={{
-          backgroundImage: `url("${image}")`,
-        }}
-      />
+const desktopSomewherePhotos = [
+  "/images/photos/somewhere/sw1.jpeg",
+  "/images/photos/somewhere/sw2.jpeg",
+  "/images/photos/somewhere/sw3.jpeg",
+  "/images/photos/somewhere/sw4.jpeg",
+  "/images/photos/somewhere/sw5.jpeg",
+  "/images/photos/somewhere/sw6.jpeg",
+  "/images/photos/somewhere/sw7.jpeg",
+  "/images/photos/somewhere/sw8.jpeg",
+  "/images/photos/somewhere/sw9.jpeg",
+  "/images/photos/somewhere/sw10.jpeg",
+  "/images/photos/somewhere/sw11.jpeg",
+  "/images/photos/somewhere/sw12.jpeg",
+  "/images/photos/somewhere/sw13.jpeg",
+  "/images/photos/somewhere/sw14.jpeg",
+  "/images/photos/somewhere/sw15.jpeg",
+];
 
-      {/* BLACK & WHITE COPY */}
-      <div
-        className="photo-image photo-image-bw"
-        style={{
-          backgroundImage: `url("${image}")`,
 
-          /*
-            slider = 100 → full colour
-            slider = 0   → full black & white
-          */
-          clipPath: `inset(0 0 0 ${slider}%)`,
-        }}
-      />
-    </div>
+/* =========================================================
+   MOBILE
+   ONE GALLERY
+   18 PHOTOS
+========================================================= */
+
+const mobilePhotos = [
+  "/images/photos/mobile/mb1.jpeg",
+  "/images/photos/mobile/mb2.jpeg",
+  "/images/photos/mobile/mb3.jpeg",
+  "/images/photos/mobile/mb4.jpeg",
+  "/images/photos/mobile/mb5.jpeg",
+  "/images/photos/mobile/mb6.jpeg",
+  "/images/photos/mobile/mb7.jpeg",
+  "/images/photos/mobile/mb8.jpeg",
+  "/images/photos/mobile/mb9.jpeg",
+  "/images/photos/mobile/mb10.jpeg",
+  "/images/photos/mobile/mb11.jpeg",
+  "/images/photos/mobile/mb12.jpeg",
+  "/images/photos/mobile/mb13.jpeg",
+  "/images/photos/mobile/mb14.jpeg",
+  "/images/photos/mobile/mb15.jpeg",
+  "/images/photos/mobile/mb16.jpeg",
+  "/images/photos/mobile/mb17.jpeg",
+  "/images/photos/mobile/mb18.jpeg",
+];
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function clamp(
+  value,
+  min,
+  max
+) {
+  return Math.min(
+    max,
+    Math.max(
+      min,
+      value
+    )
   );
 }
 
 
 /* =========================================================
-   GLASS BUBBLE
+   MOBILE QUERY
+========================================================= */
+
+function useIsMobile() {
+  const [
+    isMobile,
+    setIsMobile,
+  ] = useState(false);
+
+
+  useEffect(() => {
+    const query =
+      window.matchMedia(
+        "(max-width: 800px)"
+      );
+
+
+    function update() {
+      setIsMobile(
+        query.matches
+      );
+    }
+
+
+    update();
+
+
+    query.addEventListener?.(
+      "change",
+      update
+    );
+
+
+    return () => {
+      query.removeEventListener?.(
+        "change",
+        update
+      );
+    };
+  }, []);
+
+
+  return isMobile;
+}
+
+
+/* =========================================================
+   IMAGE NATURAL SIZE
+========================================================= */
+
+function useNaturalImageSize(
+  src
+) {
+  const [
+    imageSize,
+    setImageSize,
+  ] = useState({
+    width: 0,
+    height: 0,
+  });
+
+
+  useEffect(() => {
+    let cancelled =
+      false;
+
+
+    const image =
+      new Image();
+
+
+    image.onload = () => {
+      if (
+        cancelled
+      ) {
+        return;
+      }
+
+
+      setImageSize({
+        width:
+          image.naturalWidth ||
+          image.width ||
+          1,
+
+        height:
+          image.naturalHeight ||
+          image.height ||
+          1,
+      });
+    };
+
+
+    image.src =
+      src;
+
+
+    return () => {
+      cancelled =
+        true;
+    };
+  }, [
+    src,
+  ]);
+
+
+  return imageSize;
+}
+
+
+/* =========================================================
+   CLEAN MAGNIFYING LENS
+
+   SAME PHOTO.
+   ZOOM ONLY.
+   NO COLOUR PROCESSING.
 ========================================================= */
 
 function GlassLens({
   pointer,
   image,
   mode,
+  stageSize,
+  isMobile,
 }) {
-  const size = 170;
-  const radius = size / 2;
+  const imageSize =
+    useNaturalImageSize(
+      image
+    );
 
-  if (!pointer.visible) {
+
+  if (
+    !pointer.visible ||
+    !stageSize.width ||
+    !stageSize.height ||
+    !imageSize.width ||
+    !imageSize.height
+  ) {
     return null;
   }
 
-  const lensLeft = pointer.x - radius;
-  const lensTop = pointer.y - radius;
 
-  const transform =
-    mode === "someone"
-      ? "rotate(180deg)"
-      : "scale(1.7)";
+  /* =======================================================
+     SIZE
+  ======================================================= */
+
+  const size =
+    isMobile
+
+      ? clamp(
+          stageSize.width *
+            0.68,
+
+          225,
+
+          320
+        )
+
+      : clamp(
+          stageSize.width *
+            0.37,
+
+          410,
+
+          590
+        );
+
+
+  const radius =
+    size / 2;
+
+
+  /* =======================================================
+     ZOOM
+  ======================================================= */
+
+  const zoom =
+    isMobile
+      ? 1.8
+      : 2.05;
+
+
+  /* =======================================================
+     LENS POSITION
+  ======================================================= */
+
+  let lensLeft;
+  let lensTop;
+
+
+  if (
+    isMobile
+  ) {
+    lensLeft =
+      clamp(
+        pointer.x -
+          radius,
+
+        8,
+
+        stageSize.width -
+          size -
+          8
+      );
+
+
+    lensTop =
+      clamp(
+        pointer.y -
+          size -
+          42,
+
+        8,
+
+        stageSize.height -
+          size -
+          8
+      );
+  }
+
+  else {
+    lensLeft =
+      pointer.x -
+      radius;
+
+
+    lensTop =
+      pointer.y -
+      radius;
+  }
+
+
+  /* =======================================================
+     RECREATE background-size: cover
+  ======================================================= */
+
+  const coverScale =
+    Math.max(
+      stageSize.width /
+        imageSize.width,
+
+      stageSize.height /
+        imageSize.height
+    );
+
+
+  const baseRenderedWidth =
+    imageSize.width *
+    coverScale;
+
+
+  const baseRenderedHeight =
+    imageSize.height *
+    coverScale;
+
+
+  const baseOffsetX =
+    (
+      stageSize.width -
+      baseRenderedWidth
+    )
+    /
+    2;
+
+
+  const baseOffsetY =
+    (
+      stageSize.height -
+      baseRenderedHeight
+    )
+    /
+    2;
+
+
+  const sourceX =
+    (
+      pointer.x -
+      baseOffsetX
+    )
+    /
+    coverScale;
+
+
+  const sourceY =
+    (
+      pointer.y -
+      baseOffsetY
+    )
+    /
+    coverScale;
+
+
+  const magnifiedScale =
+    coverScale *
+    zoom;
+
+
+  const magnifiedWidth =
+    imageSize.width *
+    magnifiedScale;
+
+
+  const magnifiedHeight =
+    imageSize.height *
+    magnifiedScale;
+
+
+  const rawBackgroundX =
+    radius -
+    sourceX *
+      magnifiedScale;
+
+
+  const rawBackgroundY =
+    radius -
+    sourceY *
+      magnifiedScale;
+
+
+  const backgroundX =
+    clamp(
+      rawBackgroundX,
+
+      size -
+        magnifiedWidth,
+
+      0
+    );
+
+
+  const backgroundY =
+    clamp(
+      rawBackgroundY,
+
+      size -
+        magnifiedHeight,
+
+      0
+    );
+
 
   return (
     <div
-      className={`photo-lens photo-lens-${mode}`}
+      className={`
+        photo-lens
+        photo-lens-${mode}
+
+        ${
+          isMobile
+            ? "photo-lens-mobile"
+            : ""
+        }
+      `}
+
       style={{
-        width: size,
-        height: size,
-        left: lensLeft,
-        top: lensTop,
+        width:
+          size,
+
+        height:
+          size,
+
+        left:
+          lensLeft,
+
+        top:
+          lensTop,
       }}
+
+      aria-hidden="true"
     >
+
       <div
-        className="photo-lens-image"
+        className="
+          photo-lens-image
+        "
+
         style={{
-          width: "100vw",
-          height: "100svh",
+          backgroundImage:
+            `url("${image}")`,
 
-          left: -lensLeft,
-          top: -lensTop,
+          backgroundRepeat:
+            "no-repeat",
 
-          backgroundImage: `url("${image}")`,
+          backgroundSize:
+            `${magnifiedWidth}px ${magnifiedHeight}px`,
 
-          transform,
-          transformOrigin: `${pointer.x}px ${pointer.y}px`,
+          backgroundPosition:
+            `${backgroundX}px ${backgroundY}px`,
         }}
       />
 
-      <div className="photo-lens-shine" />
+
+      <div
+        className="
+          photo-lens-edge-light
+        "
+      />
+
+
+      <div
+        className="
+          photo-lens-gloss
+        "
+      />
+
+
+      <div
+        className="
+          photo-lens-hotspot
+        "
+      />
+
+
+      <div
+        className="
+          photo-lens-rim
+        "
+      />
+
     </div>
   );
 }
 
 
 /* =========================================================
-   ONE PHOTO EXPERIENCE
+   PHOTO GALLERY
 ========================================================= */
 
-function PhotoStory({
-  id,
-  photos,
-  title,
-  mode,
-}) {
-  const sectionRef = useRef(null);
-  const viewportRef = useRef(null);
+function PhotoGallery() {
+  const isMobile =
+    useIsMobile();
 
-  const [frame, setFrame] = useState({
-    index: 0,
-    mix: 0,
-  });
 
-  const [slider, setSlider] = useState(92);
-  const [dragging, setDragging] = useState(false);
+  const storyRef =
+    useRef(null);
 
-  const [pointer, setPointer] = useState({
+
+  const stageRef =
+    useRef(null);
+
+
+  const [
+    mode,
+    setMode,
+  ] = useState(
+    "someone"
+  );
+
+
+  const [
+    index,
+    setIndex,
+  ] = useState(0);
+
+
+  const [
+    introReveal,
+    setIntroReveal,
+  ] = useState(0);
+
+
+  const [
+    pointer,
+    setPointer,
+  ] = useState({
     x: 0,
     y: 0,
     visible: false,
   });
 
 
+  const [
+    stageSize,
+    setStageSize,
+  ] = useState({
+    width: 0,
+    height: 0,
+  });
+
+
   /* =======================================================
-     SCROLL PROGRESS
+     ACTIVE PHOTOS
   ======================================================= */
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end end"],
+  const activePhotos =
+    isMobile
+
+      ? mobilePhotos
+
+      : mode === "someone"
+        ? desktopSomeonePhotos
+        : desktopSomewherePhotos;
+
+
+  const title =
+    mode === "someone"
+      ? "HUMANS"
+      : "NO HUMANS";
+
+
+  const currentImage =
+    activePhotos[index];
+
+
+  /* =======================================================
+     RESET ON BREAKPOINT CHANGE
+  ======================================================= */
+
+  useEffect(() => {
+    setIndex(0);
+
+    setIntroReveal(0);
+
+    setPointer({
+      x: 0,
+      y: 0,
+      visible: false,
+    });
+  }, [
+    isMobile,
+  ]);
+
+
+  /* =======================================================
+     DESKTOP INTRO SCROLL
+  ======================================================= */
+
+  const {
+    scrollYProgress,
+  } = useScroll({
+    target:
+      storyRef,
+
+    offset: [
+      "start start",
+      "end end",
+    ],
   });
 
 
   useMotionValueEvent(
     scrollYProgress,
+
     "change",
-    (progress) => {
-      const raw =
-        progress * (photos.length - 1);
 
-      const index = Math.min(
-        photos.length - 1,
-        Math.floor(raw)
+    (
+      progress
+    ) => {
+      if (
+        isMobile
+      ) {
+        return;
+      }
+
+
+      const reveal =
+        clamp(
+          progress *
+            1.45,
+
+          0,
+
+          1
+        );
+
+
+      setIntroReveal(
+        reveal
       );
-
-      const mix =
-        index === photos.length - 1
-          ? 0
-          : raw - index;
-
-      setFrame({
-        index,
-        mix,
-      });
     }
   );
 
 
   /* =======================================================
-     CURRENT + NEXT PHOTO
+     FIRST PHOTO
   ======================================================= */
 
-  const currentImage =
-    photos[frame.index];
-
-  const nextImage =
-    photos[
-      Math.min(
-        frame.index + 1,
-        photos.length - 1
-      )
-    ];
+  const firstPhoto =
+    index === 0;
 
 
-  /* =======================================================
-     BLUR / CROSSFADE
-  ======================================================= */
+  const effectiveReveal =
+    isMobile
 
-  const currentOpacity =
-    frame.index === photos.length - 1
       ? 1
-      : 1 - frame.mix;
 
-  const nextOpacity =
-    frame.index === photos.length - 1
-      ? 0
-      : frame.mix;
+      : firstPhoto
+        ? introReveal
+        : 1;
 
 
-  const currentBlur =
-    frame.mix * 18;
+  const openingScale =
+    1 +
+    (
+      1 -
+      effectiveReveal
+    )
+    *
+    0.065;
 
-  const nextBlur =
-    (1 - frame.mix) * 18;
+
+  const openingBlur =
+    (
+      1 -
+      effectiveReveal
+    )
+    *
+    28;
 
 
-  const currentScale =
-    1 + frame.mix * 0.035;
+  const openingTitleOpacity =
+    !isMobile &&
+    firstPhoto
 
-  const nextScale =
-    1.035 - frame.mix * 0.035;
+      ? clamp(
+          1 -
+          effectiveReveal *
+            1.25,
+
+          0,
+
+          1
+        )
+
+      : 0;
+
+
+  const openingTitleScale =
+    1 +
+    effectiveReveal *
+      0.06;
 
 
   /* =======================================================
-     BUBBLE IMAGE
+     SELECT CATEGORY
   ======================================================= */
 
-  const lensImage =
-    frame.mix > 0.5
-      ? nextImage
-      : currentImage;
+  function selectMode(
+    nextMode
+  ) {
+    if (
+      isMobile ||
+      nextMode ===
+        mode
+    ) {
+      return;
+    }
+
+
+    setMode(
+      nextMode
+    );
+
+
+    setIndex(0);
+
+
+    setIntroReveal(0);
+
+
+    setPointer({
+      x: 0,
+      y: 0,
+      visible: false,
+    });
+
+
+    requestAnimationFrame(
+      () => {
+        storyRef.current
+          ?.scrollIntoView({
+            behavior:
+              "auto",
+
+            block:
+              "start",
+          });
+      }
+    );
+  }
 
 
   /* =======================================================
-     BUBBLE CURSOR MOVEMENT
+     PREVIOUS
   ======================================================= */
 
-  function handlePointerMove(event) {
-    if (!viewportRef.current) return;
+  function goPrevious() {
+    setIndex(
+      (
+        current
+      ) =>
+        (
+          current -
+          1 +
+          activePhotos.length
+        )
+        %
+        activePhotos.length
+    );
+
+
+    setPointer(
+      (
+        previous
+      ) => ({
+        ...previous,
+
+        visible:
+          false,
+      })
+    );
+  }
+
+
+  /* =======================================================
+     NEXT
+  ======================================================= */
+
+  function goNext() {
+    setIndex(
+      (
+        current
+      ) =>
+        (
+          current +
+          1
+        )
+        %
+        activePhotos.length
+    );
+
+
+    setPointer(
+      (
+        previous
+      ) => ({
+        ...previous,
+
+        visible:
+          false,
+      })
+    );
+  }
+
+
+  /* =======================================================
+     KEYBOARD
+  ======================================================= */
+
+  useEffect(() => {
+    function handleKeyDown(
+      event
+    ) {
+      const target =
+        event.target;
+
+
+      const typing =
+        target instanceof
+          HTMLElement
+        &&
+        (
+          target.isContentEditable ||
+          target.tagName ===
+            "INPUT" ||
+          target.tagName ===
+            "TEXTAREA" ||
+          target.tagName ===
+            "SELECT"
+        );
+
+
+      if (
+        typing
+      ) {
+        return;
+      }
+
+
+      if (
+        event.key ===
+        "ArrowLeft"
+      ) {
+        event.preventDefault();
+
+
+        setIndex(
+          (
+            current
+          ) =>
+            (
+              current -
+              1 +
+              activePhotos.length
+            )
+            %
+            activePhotos.length
+        );
+
+
+        setPointer(
+          (
+            previous
+          ) => ({
+            ...previous,
+
+            visible:
+              false,
+          })
+        );
+      }
+
+
+      if (
+        event.key ===
+        "ArrowRight"
+      ) {
+        event.preventDefault();
+
+
+        setIndex(
+          (
+            current
+          ) =>
+            (
+              current +
+              1
+            )
+            %
+            activePhotos.length
+        );
+
+
+        setPointer(
+          (
+            previous
+          ) => ({
+            ...previous,
+
+            visible:
+              false,
+          })
+        );
+      }
+    }
+
+
+    window.addEventListener(
+      "keydown",
+      handleKeyDown
+    );
+
+
+    return () => {
+      window.removeEventListener(
+        "keydown",
+        handleKeyDown
+      );
+    };
+  }, [
+    activePhotos.length,
+  ]);
+
+
+  /* =======================================================
+     STAGE SIZE
+  ======================================================= */
+
+  useEffect(() => {
+    if (
+      !stageRef.current
+    ) {
+      return;
+    }
+
+
+    const stage =
+      stageRef.current;
+
+
+    function updateStageSize() {
+      const rect =
+        stage
+          .getBoundingClientRect();
+
+
+      setStageSize({
+        width:
+          rect.width,
+
+        height:
+          rect.height,
+      });
+    }
+
+
+    updateStageSize();
+
+
+    const observer =
+      new ResizeObserver(
+        updateStageSize
+      );
+
+
+    observer.observe(
+      stage
+    );
+
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [
+    isMobile,
+  ]);
+
+
+  /* =======================================================
+     POINTER
+  ======================================================= */
+
+  function getPointerPosition(
+    event
+  ) {
+    if (
+      !stageRef.current
+    ) {
+      return null;
+    }
+
 
     const rect =
-      viewportRef.current.getBoundingClientRect();
+      stageRef.current
+        .getBoundingClientRect();
+
+
+    return {
+      x:
+        clamp(
+          event.clientX -
+            rect.left,
+
+          0,
+
+          rect.width
+        ),
+
+      y:
+        clamp(
+          event.clientY -
+            rect.top,
+
+          0,
+
+          rect.height
+        ),
+    };
+  }
+
+
+  function showLensAtPointer(
+    event
+  ) {
+    if (
+      !isMobile &&
+      event.pointerType ===
+        "mouse" &&
+      event.buttons > 1
+    ) {
+      return;
+    }
+
+
+    const position =
+      getPointerPosition(
+        event
+      );
+
+
+    if (
+      !position
+    ) {
+      return;
+    }
+
 
     setPointer({
       x:
-        event.clientX -
-        rect.left,
+        position.x,
 
       y:
-        event.clientY -
-        rect.top,
+        position.y,
 
-      visible: true,
+      visible:
+        true,
     });
   }
 
 
-  /* =======================================================
-     BLACK & WHITE SLIDER
-  ======================================================= */
-
-  function updateSlider(event) {
-    if (!viewportRef.current) return;
-
-    const rect =
-      viewportRef.current.getBoundingClientRect();
-
-    const x =
-      event.clientX -
-      rect.left;
-
-    let percentage =
-      (x / rect.width) * 100;
-
-    percentage =
-      Math.max(
-        0,
-        Math.min(100, percentage)
-      );
-
-    setSlider(percentage);
-  }
-
-
-  function startSlider(event) {
-    setDragging(true);
-
-    event.currentTarget.setPointerCapture(
-      event.pointerId
-    );
-
-    updateSlider(event);
-  }
-
-
-  function moveSlider(event) {
-    if (!dragging) return;
-
-    updateSlider(event);
-  }
-
-
-  function stopSlider(event) {
-    setDragging(false);
-
-    try {
-      event.currentTarget.releasePointerCapture(
-        event.pointerId
-      );
-    } catch {
-      // nothing
+  function hideMobileLens() {
+    if (
+      !isMobile
+    ) {
+      return;
     }
+
+
+    setPointer(
+      (
+        previous
+      ) => ({
+        ...previous,
+
+        visible:
+          false,
+      })
+    );
   }
 
+
+  const lensAllowed =
+    isMobile ||
+    !firstPhoto ||
+    effectiveReveal >
+      0.98;
+
+
+  /* =======================================================
+     RENDER
+  ======================================================= */
 
   return (
     <section
-      id={id}
-      ref={sectionRef}
-      className={`photo-story photo-story-${mode}`}
+      className={`
+        photo-gallery
 
-      /*
-        10 photos × 65svh
-        = 650svh scroll journey per category
-      */
-      style={{
-        height: `${photos.length * 65}svh`,
-      }}
+        ${
+          isMobile
+            ? "photo-gallery-mobile"
+            : "photo-gallery-desktop"
+        }
+      `}
+
+      aria-label="
+        Photography
+      "
     >
-      <div
-        ref={viewportRef}
-        className="photo-viewport"
 
-        onPointerMove={handlePointerMove}
+      {/* =================================================
+          DESKTOP TABS
+      ================================================= */}
 
-        onPointerEnter={
-          handlePointerMove
-        }
+      {!isMobile && (
 
-        onPointerLeave={() =>
-          setPointer((previous) => ({
-            ...previous,
-            visible: false,
-          }))
-        }
-      >
+        <div
+          className="
+            photo-tabs
+          "
 
-        {/* =================================================
-            CURRENT PHOTO
-        ================================================= */}
+          role="tablist"
 
-        <PhotoLayer
-          image={currentImage}
-          opacity={currentOpacity}
-          blur={currentBlur}
-          scale={currentScale}
-          slider={slider}
-          zIndex={1}
-        />
+          aria-label="
+            Photography categories
+          "
+        >
 
+          <button
+            type="button"
 
-        {/* =================================================
-            NEXT PHOTO
-        ================================================= */}
+            role="tab"
 
-        <PhotoLayer
-          image={nextImage}
-          opacity={nextOpacity}
-          blur={nextBlur}
-          scale={nextScale}
-          slider={slider}
-          zIndex={2}
-        />
+            aria-selected={
+              mode ===
+              "someone"
+            }
 
+            className={`
+              photo-tab
 
-        {/* =================================================
-            CINEMATIC VIGNETTE
-        ================================================= */}
+              ${
+                mode ===
+                "someone"
+                  ? "photo-tab-active"
+                  : ""
+              }
+            `}
 
-        <div className="photo-vignette" />
-
-
-        {/* =================================================
-            HUMANS | NO HUMANS
-        ================================================= */}
-
-        <nav className="photo-nav">
-
-          <a
-            href="#humans"
-            className={
-              mode === "someone"
-                ? "photo-nav-active"
-                : ""
+            onClick={() =>
+              selectMode(
+                "someone"
+              )
             }
           >
-            HUMANS
-          </a>
+            SOMEONE
+          </button>
 
-          <span>|</span>
 
-          <a
-            href="#no-humans"
-            className={
-              mode === "somewhere"
-                ? "photo-nav-active"
-                : ""
+          <button
+            type="button"
+
+            role="tab"
+
+            aria-selected={
+              mode ===
+              "somewhere"
+            }
+
+            className={`
+              photo-tab
+
+              ${
+                mode ===
+                "somewhere"
+                  ? "photo-tab-active"
+                  : ""
+              }
+            `}
+
+            onClick={() =>
+              selectMode(
+                "somewhere"
+              )
             }
           >
-            NO HUMANS
-          </a>
-
-        </nav>
-
-
-        {/* =================================================
-            COUNTER
-        ================================================= */}
-
-        <div className="photo-counter">
-
-          {String(
-            frame.index + 1
-          ).padStart(
-            2,
-            "0"
-          )}
-
-          <span>/</span>
-
-          {String(
-            photos.length
-          ).padStart(
-            2,
-            "0"
-          )}
+            SOMEWHERE
+          </button>
 
         </div>
 
-
-        {/* =================================================
-            SOMEONE / SOMEWHERE
-        ================================================= */}
-
-        <h2 className="photo-story-title">
-          {title}
-        </h2>
+      )}
 
 
-        {/* =================================================
-            BLACK & WHITE DIVIDER
-        ================================================= */}
+      {/* =================================================
+          GALLERY
+      ================================================= */}
 
-        <div
-          className="bw-divider"
-          style={{
-            left: `${slider}%`,
-          }}
-        />
+      <div
+        ref={
+          storyRef
+        }
 
-
-        {/* =================================================
-            SLIDER HANDLE
-        ================================================= */}
+        className="
+          photo-scroll-story
+        "
+      >
 
         <div
-          className={`bw-handle ${
-            dragging
-              ? "bw-handle-dragging"
-              : ""
-          }`}
+          ref={
+            stageRef
+          }
 
-          style={{
-            left: `clamp(
-              22px,
-              ${slider}%,
-              calc(100% - 22px)
-            )`,
-          }}
+          className="
+            photo-stage
+            photo-stage-sticky
+          "
 
-          onPointerDown={
-            startSlider
+          onPointerEnter={
+            isMobile
+              ? undefined
+              : showLensAtPointer
           }
 
           onPointerMove={
-            moveSlider
+            showLensAtPointer
+          }
+
+          onPointerDown={
+            showLensAtPointer
           }
 
           onPointerUp={
-            stopSlider
+            hideMobileLens
           }
 
           onPointerCancel={
-            stopSlider
+            hideMobileLens
           }
+
+          onPointerLeave={() => {
+            setPointer(
+              (
+                previous
+              ) => ({
+                ...previous,
+
+                visible:
+                  false,
+              })
+            );
+          }}
         >
 
-          <div className="bw-handle-circle">
-            <span>↔</span>
+          {/* =============================================
+              PHOTO
+          ============================================= */}
+
+          <div
+            key={
+              `${
+                isMobile
+                  ? "mobile"
+                  : mode
+              }-${index}`
+            }
+
+            className="
+              photo-slide
+              photo-slide-arrow-enter
+            "
+
+            style={{
+              filter:
+                `blur(${openingBlur}px)`,
+
+              transform:
+                `scale(${openingScale})`,
+            }}
+          >
+
+            <div
+              className="
+                photo-image
+              "
+
+              style={{
+                backgroundImage:
+                  `url("${currentImage}")`,
+              }}
+            />
+
           </div>
 
+
+          {/* =============================================
+              DESKTOP OPENING TITLE
+          ============================================= */}
+
+          {!isMobile && (
+
+            <div
+              className="
+                photo-category-opening
+              "
+
+              style={{
+                opacity:
+                  openingTitleOpacity,
+
+                transform:
+                  `scale(${openingTitleScale})`,
+              }}
+            >
+              {title}
+            </div>
+
+          )}
+
+
+          {/* =============================================
+              PREVIOUS
+          ============================================= */}
+
+          <button
+            type="button"
+
+            className="
+              photo-arrow
+              photo-arrow-left
+            "
+
+            aria-label="
+              Previous photograph
+            "
+
+            onPointerDown={
+              (
+                event
+              ) =>
+                event.stopPropagation()
+            }
+
+            onClick={
+              goPrevious
+            }
+          >
+            <span
+              aria-hidden="true"
+            >
+              ←
+            </span>
+          </button>
+
+
+          {/* =============================================
+              NEXT
+          ============================================= */}
+
+          <button
+            type="button"
+
+            className="
+              photo-arrow
+              photo-arrow-right
+            "
+
+            aria-label="
+              Next photograph
+            "
+
+            onPointerDown={
+              (
+                event
+              ) =>
+                event.stopPropagation()
+            }
+
+            onClick={
+              goNext
+            }
+          >
+            <span
+              aria-hidden="true"
+            >
+              →
+            </span>
+          </button>
+
+
+          {/* =============================================
+              CLEAN LENS
+          ============================================= */}
+
+          {lensAllowed && (
+
+            <GlassLens
+              pointer={
+                pointer
+              }
+
+              image={
+                currentImage
+              }
+
+              mode={
+                isMobile
+                  ? "mobile"
+                  : mode
+              }
+
+              stageSize={
+                stageSize
+              }
+
+              isMobile={
+                isMobile
+              }
+            />
+
+          )}
+
         </div>
-
-
-        {/* =================================================
-            LABELS
-        ================================================= */}
-
-        <div className="photo-colour-label">
-          colour
-        </div>
-
-        <div className="photo-bw-label">
-          b&w
-        </div>
-
-
-        {/* =================================================
-            GLASS BUBBLE
-        ================================================= */}
-
-        <GlassLens
-          pointer={pointer}
-          image={lensImage}
-          mode={mode}
-        />
-
-
-        {/* =================================================
-            FILM GRAIN
-        ================================================= */}
-
-        <div className="photo-grain" />
 
       </div>
+
     </section>
   );
 }
 
 
 /* =========================================================
-   MAIN PHOTOGRAPHY SECTION
+   MAIN
 ========================================================= */
 
 export default function Photos() {
   return (
-    <section className="photos">
-
-      {/* SOMEONE / HUMANS */}
-
-      <PhotoStory
-        id="humans"
-        photos={someonePhotos}
-        title="SOMEONE"
-        mode="someone"
-      />
-
-
-      {/* SOMEWHERE / NO HUMANS */}
-
-      <PhotoStory
-        id="no-humans"
-        photos={somewherePhotos}
-        title="SOMEWHERE"
-        mode="somewhere"
-      />
-
+    <section
+      className="
+        photos
+      "
+    >
+      <PhotoGallery />
     </section>
   );
 }

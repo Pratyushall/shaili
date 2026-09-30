@@ -1,0 +1,1773 @@
+/* =========================================================
+   ABOUT
+
+   NEAR-BLACK CHARCOAL
+   HEAVY FILM GRAIN
+   BACKGROUND IMAGE
+   CLICKABLE EDITORIAL LINES
+========================================================= */
+
+
+/* =========================================================
+   FONTS
+========================================================= */
+
+@font-face {
+  font-family: "About 1942";
+  src: url("/fonts/1942.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "About Adventure";
+  src: url("/fonts/adventure.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "About Blue";
+  src: url("/fonts/blue.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "About Coral Pixels";
+  src: url("/fonts/CoralPixels.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "About Drawn";
+  src: url("/fonts/drawn.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "About Gridtile";
+  src: url("/fonts/gridtile.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "About Hollow";
+  src: url("/fonts/hollow.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "About Hooey";
+  src: url("/fonts/hooey.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "About Hugh Is Life";
+  src: url("/fonts/hughislife.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "About Manasp";
+  src: url("/fonts/manasp.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "About Midnight Munch";
+  src: url("/fonts/midnightmunch.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "About Milestone";
+  src: url("/fonts/milestone.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "About Monashark";
+  src: url("/fonts/monashark.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "About Mustasurma";
+  src: url("/fonts/mustasurma.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "About Punktype";
+  src: url("/fonts/punktype.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "About Relsika";
+  src: url("/fonts/relsika.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "About Sans Serif Shaded";
+  src: url("/fonts/sansserifshaded.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "About Saphile Stamp";
+  src: url("/fonts/saphilestamp.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "About Tracker Clock";
+  src: url("/fonts/trackerclock.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "About Xero4";
+  src: url("/fonts/xero4.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+
+/* =========================================================
+   ABOUT
+
+   CHANGE:
+
+   --about-line-font
+   --about-bg-image
+========================================================= */
+
+.about {
+  --about-line-font:
+    "About Bluew";
+
+  --about-bg-image:
+    url("/images/bg2.png");
+
+
+  position:
+    relative;
+
+  width:
+    100%;
+
+  min-height:
+    100svh;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  overflow:
+    hidden;
+
+  padding:
+    clamp(
+      6rem,
+      10vw,
+      10rem
+    )
+    clamp(
+      1.5rem,
+      6vw,
+      7rem
+    );
+
+
+  /*
+    IMAGE IS BOTTOM LAYER.
+
+    Everything above it is translucent.
+  */
+
+  background-image:
+
+    radial-gradient(
+      ellipse
+      at
+      16%
+      18%,
+
+      rgba(
+        255,
+        255,
+        255,
+        0.045
+      )
+      0%,
+
+      rgba(
+        255,
+        255,
+        255,
+        0.015
+      )
+      24%,
+
+      transparent
+      48%
+    ),
+
+    radial-gradient(
+      ellipse
+      at
+      84%
+      30%,
+
+      rgba(
+        210,
+        210,
+        210,
+        0.04
+      )
+      0%,
+
+      rgba(
+        160,
+        160,
+        160,
+        0.012
+      )
+      30%,
+
+      transparent
+      55%
+    ),
+
+    radial-gradient(
+      ellipse
+      at
+      57%
+      89%,
+
+      rgba(
+        255,
+        255,
+        255,
+        0.025
+      )
+      0%,
+
+      transparent
+      48%
+    ),
+
+    linear-gradient(
+      to bottom,
+
+      rgba(
+        2,
+        2,
+        2,
+        0.6
+      )
+      0%,
+
+      rgba(
+        5,
+        5,
+        6,
+        0.68
+      )
+      48%,
+
+      rgba(
+        2,
+        2,
+        2,
+        0.82
+      )
+      100%
+    ),
+
+    var(
+      --about-bg-image
+    );
+
+
+  background-size:
+    auto,
+    auto,
+    auto,
+    auto,
+    cover;
+
+
+  background-position:
+    center,
+    center,
+    center,
+    center,
+    center;
+
+
+  background-repeat:
+    no-repeat;
+
+
+  color:
+    #e5e4df;
+
+  isolation:
+    isolate;
+}
+
+
+/* =========================================================
+   FINE GRAIN
+========================================================= */
+
+.about::before {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  z-index:
+    3;
+
+  inset:
+    0;
+
+  pointer-events:
+    none;
+
+  opacity:
+    0.18;
+
+  background-image:
+    url(
+      "data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='fineAboutNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.45' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23fineAboutNoise)' opacity='1'/%3E%3C/svg%3E"
+    );
+
+  background-size:
+    130px
+    130px;
+
+  mix-blend-mode:
+    screen;
+
+  filter:
+    contrast(
+      165%
+    )
+    brightness(
+      42%
+    );
+}
+
+
+/* =========================================================
+   VIGNETTE
+========================================================= */
+
+.about::after {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  z-index:
+    4;
+
+  inset:
+    0;
+
+  pointer-events:
+    none;
+
+  background:
+    radial-gradient(
+      ellipse
+      at
+      center,
+
+      transparent
+      0%,
+
+      transparent
+      44%,
+
+      rgba(
+        0,
+        0,
+        0,
+        0.18
+      )
+      68%,
+
+      rgba(
+        0,
+        0,
+        0,
+        0.48
+      )
+      100%
+    );
+}
+
+
+/* =========================================================
+   CLOUDS
+========================================================= */
+
+.about-cloud {
+  position:
+    absolute;
+
+  border-radius:
+    50%;
+
+  pointer-events:
+    none;
+
+  filter:
+    blur(
+      130px
+    );
+
+  will-change:
+    transform;
+}
+
+
+.about-cloud-one {
+  z-index:
+    1;
+
+  width:
+    58vw;
+
+  height:
+    58vw;
+
+  top:
+    -28vw;
+
+  left:
+    -18vw;
+
+  background:
+    rgba(
+      220,
+      220,
+      220,
+      0.075
+    );
+
+  opacity:
+    0.64;
+
+  animation:
+    aboutCloudOne
+    17s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+.about-cloud-two {
+  z-index:
+    1;
+
+  width:
+    50vw;
+
+  height:
+    50vw;
+
+  top:
+    15%;
+
+  right:
+    -26vw;
+
+  background:
+    rgba(
+      190,
+      190,
+      190,
+      0.055
+    );
+
+  opacity:
+    0.6;
+
+  animation:
+    aboutCloudTwo
+    21s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+.about-cloud-three {
+  z-index:
+    1;
+
+  width:
+    72vw;
+
+  height:
+    62vw;
+
+  left:
+    18%;
+
+  bottom:
+    -43vw;
+
+  background:
+    rgba(
+      0,
+      0,
+      0,
+      0.94
+    );
+
+  opacity:
+    0.9;
+
+  animation:
+    aboutCloudThree
+    24s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+/* =========================================================
+   CLOUD MOTION
+========================================================= */
+
+@keyframes aboutCloudOne {
+  0% {
+    transform:
+      translate3d(
+        -4%,
+        -4%,
+        0
+      )
+      scale(
+        1
+      );
+  }
+
+  100% {
+    transform:
+      translate3d(
+        18%,
+        14%,
+        0
+      )
+      scale(
+        1.16
+      );
+  }
+}
+
+
+@keyframes aboutCloudTwo {
+  0% {
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      )
+      scale(
+        1
+      );
+  }
+
+  100% {
+    transform:
+      translate3d(
+        -25%,
+        12%,
+        0
+      )
+      scale(
+        1.2
+      );
+  }
+}
+
+
+@keyframes aboutCloudThree {
+  0% {
+    transform:
+      translate3d(
+        -4%,
+        0,
+        0
+      )
+      scale(
+        1
+      );
+  }
+
+  100% {
+    transform:
+      translate3d(
+        12%,
+        -10%,
+        0
+      )
+      scale(
+        1.12
+      );
+  }
+}
+
+
+/* =========================================================
+   MIST
+========================================================= */
+
+.about-mist {
+  position:
+    absolute;
+
+  z-index:
+    2;
+
+  left:
+    -10%;
+
+  top:
+    43%;
+
+  width:
+    80%;
+
+  height:
+    19%;
+
+  pointer-events:
+    none;
+
+  background:
+    linear-gradient(
+      90deg,
+
+      transparent
+      0%,
+
+      rgba(
+        255,
+        255,
+        255,
+        0.01
+      )
+      18%,
+
+      rgba(
+        225,
+        225,
+        225,
+        0.06
+      )
+      48%,
+
+      rgba(
+        190,
+        190,
+        190,
+        0.02
+      )
+      72%,
+
+      transparent
+      100%
+    );
+
+  filter:
+    blur(
+      50px
+    );
+
+  transform:
+    rotate(
+      -4deg
+    );
+
+  opacity:
+    0.7;
+}
+
+
+/* =========================================================
+   HEAVY MOVING GRAIN
+========================================================= */
+
+.about-noise {
+  position:
+    absolute;
+
+  inset:
+    -50%;
+
+  width:
+    200%;
+
+  height:
+    200%;
+
+  z-index:
+    3;
+
+  pointer-events:
+    none;
+
+  opacity:
+    0.48;
+
+  mix-blend-mode:
+    screen;
+
+  filter:
+    contrast(
+      190%
+    )
+    brightness(
+      43%
+    );
+
+  background-image:
+    url(
+      "data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseAboutHeavy'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseAboutHeavy)' opacity='1'/%3E%3C/svg%3E"
+    );
+
+  background-size:
+    175px
+    175px;
+
+  animation:
+    aboutNoise
+    0.115s
+    steps(2)
+    infinite;
+}
+
+
+@keyframes aboutNoise {
+  0% {
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      );
+  }
+
+  10% {
+    transform:
+      translate3d(
+        -2%,
+        3%,
+        0
+      );
+  }
+
+  20% {
+    transform:
+      translate3d(
+        3%,
+        -2%,
+        0
+      );
+  }
+
+  30% {
+    transform:
+      translate3d(
+        -4%,
+        -1%,
+        0
+      );
+  }
+
+  40% {
+    transform:
+      translate3d(
+        4%,
+        3%,
+        0
+      );
+  }
+
+  50% {
+    transform:
+      translate3d(
+        -3%,
+        -4%,
+        0
+      );
+  }
+
+  60% {
+    transform:
+      translate3d(
+        2%,
+        4%,
+        0
+      );
+  }
+
+  70% {
+    transform:
+      translate3d(
+        -4%,
+        2%,
+        0
+      );
+  }
+
+  80% {
+    transform:
+      translate3d(
+        3%,
+        -3%,
+        0
+      );
+  }
+
+  90% {
+    transform:
+      translate3d(
+        -2%,
+        4%,
+        0
+      );
+  }
+
+  100% {
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      );
+  }
+}
+
+
+/* =========================================================
+   INNER
+========================================================= */
+
+.about-inner {
+  position:
+    relative;
+
+  z-index:
+    5;
+
+  width:
+    100%;
+
+  max-width:
+    1500px;
+
+  margin:
+    0
+    auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.about-header {
+  width:
+    100%;
+
+  display:
+    flex;
+
+  align-items:
+    flex-start;
+
+  justify-content:
+    space-between;
+
+  gap:
+    2rem;
+
+  margin-bottom:
+    clamp(
+      4rem,
+      7vw,
+      7rem
+    );
+}
+
+
+.about-eyebrow {
+  margin:
+    0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      0.75rem,
+      1vw,
+      0.95rem
+    );
+
+  font-weight:
+    400;
+
+  letter-spacing:
+    0.09em;
+
+  color:
+    rgba(
+      230,
+      230,
+      225,
+      0.6
+    );
+
+  text-transform:
+    lowercase;
+}
+
+
+.about-index {
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size:
+    clamp(
+      0.57rem,
+      0.7vw,
+      0.68rem
+    );
+
+  font-weight:
+    600;
+
+  letter-spacing:
+    0.18em;
+
+  color:
+    rgba(
+      235,
+      235,
+      235,
+      0.32
+    );
+}
+
+
+/* =========================================================
+   LINES
+========================================================= */
+
+.about-lines {
+  position:
+    relative;
+
+  width:
+    100%;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    clamp(
+      1.45rem,
+      2.3vw,
+      2.5rem
+    );
+}
+
+
+.about-line-wrap {
+  position:
+    relative;
+
+  width:
+    fit-content;
+
+  max-width:
+    93%;
+
+  isolation:
+    isolate;
+}
+
+
+.about-line-wrap-1 {
+  margin-left:
+    0;
+}
+
+
+.about-line-wrap-2 {
+  margin-left:
+    clamp(
+      2rem,
+      8vw,
+      9rem
+    );
+}
+
+
+.about-line-wrap-3 {
+  margin-left:
+    clamp(
+      0rem,
+      2vw,
+      2.5rem
+    );
+}
+
+
+.about-line-wrap-4 {
+  margin-left:
+    clamp(
+      5rem,
+      18vw,
+      18rem
+    );
+}
+
+
+/* =========================================================
+   MOTION LAYER
+========================================================= */
+
+.about-line-motion {
+  position:
+    relative;
+
+  z-index:
+    2;
+
+  width:
+    fit-content;
+
+  max-width:
+    100%;
+
+  transform-origin:
+    left
+    center;
+
+  will-change:
+    transform,
+    opacity,
+    filter;
+}
+
+
+/* =========================================================
+   CLICKABLE TEXT
+========================================================= */
+
+.about-line {
+  position:
+    relative;
+
+  display:
+    block;
+
+  width:
+    fit-content;
+
+  max-width:
+    100%;
+
+  margin:
+    0;
+
+  padding:
+    0;
+
+  font-family:
+    var(
+      --about-line-font
+    ),
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size:
+    clamp(
+      2.65rem,
+      5.75vw,
+      6.7rem
+    );
+
+  font-weight:
+    400;
+
+  line-height:
+    0.91;
+
+  letter-spacing:
+    -0.04em;
+
+  color:
+    #deded9;
+
+  text-decoration:
+    none;
+
+  cursor:
+    pointer;
+
+  user-select:
+    none;
+
+  text-wrap:
+    balance;
+
+  overflow-wrap:
+    break-word;
+
+  -webkit-tap-highlight-color:
+    transparent;
+
+  text-shadow:
+    0
+    0
+    26px
+    rgba(
+      255,
+      255,
+      255,
+      0.035
+    );
+
+  transition:
+    color
+    0.3s
+    ease,
+
+    text-shadow
+    0.35s
+    ease;
+}
+
+
+.about-line:hover {
+  color:
+    #f5f4ef;
+
+  text-shadow:
+    0
+    0
+    22px
+    rgba(
+      255,
+      255,
+      255,
+      0.085
+    );
+}
+
+
+.about-line:focus-visible {
+  outline:
+    1px
+    solid
+    rgba(
+      235,
+      235,
+      230,
+      0.55
+    );
+
+  outline-offset:
+    10px;
+}
+
+
+/* =========================================================
+   GLOW
+========================================================= */
+
+.about-line-glow {
+  position:
+    absolute;
+
+  z-index:
+    1;
+
+  left:
+    -8%;
+
+  top:
+    50%;
+
+  width:
+    116%;
+
+  height:
+    145%;
+
+  transform:
+    translateY(
+      -50%
+    );
+
+  border-radius:
+    50%;
+
+  pointer-events:
+    none;
+
+  background:
+    radial-gradient(
+      ellipse
+      at
+      center,
+
+      rgba(
+        255,
+        255,
+        255,
+        0.085
+      )
+      0%,
+
+      rgba(
+        180,
+        180,
+        180,
+        0.035
+      )
+      36%,
+
+      transparent
+      72%
+    );
+
+  filter:
+    blur(
+      36px
+    );
+}
+
+
+/* =========================================================
+   FOOTNOTE
+========================================================= */
+
+.about-footnote {
+  width:
+    fit-content;
+
+  margin:
+    clamp(
+      5rem,
+      9vw,
+      9rem
+    )
+    0
+    0
+    auto;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      0.82rem,
+      1.05vw,
+      1rem
+    );
+
+  font-style:
+    italic;
+
+  letter-spacing:
+    0.015em;
+
+  color:
+    rgba(
+      225,
+      225,
+      218,
+      0.43
+    );
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (
+  max-width:
+    700px
+) {
+
+  .about {
+    min-height:
+      auto;
+
+    display:
+      block;
+
+    padding:
+      max(
+        4.5rem,
+        env(
+          safe-area-inset-top
+        )
+      )
+      max(
+        1.2rem,
+        env(
+          safe-area-inset-right
+        )
+      )
+      max(
+        5rem,
+        env(
+          safe-area-inset-bottom
+        )
+      )
+      max(
+        1.2rem,
+        env(
+          safe-area-inset-left
+        )
+      );
+
+    background-position:
+      center,
+      center,
+      center,
+      center,
+      center center;
+  }
+
+
+  .about-header {
+    margin-bottom:
+      3.2rem;
+  }
+
+
+  .about-eyebrow {
+    max-width:
+      65%;
+
+    font-size:
+      0.7rem;
+
+    line-height:
+      1.4;
+  }
+
+
+  .about-index {
+    font-size:
+      0.52rem;
+  }
+
+
+  .about-lines {
+    gap:
+      0;
+  }
+
+
+  .about-line-wrap {
+    width:
+      100%;
+
+    max-width:
+      100%;
+
+    min-height:
+      27svh;
+
+    display:
+      flex;
+
+    align-items:
+      center;
+
+    margin-left:
+      0;
+  }
+
+
+  .about-line-motion {
+    max-width:
+      100%;
+  }
+
+
+  .about-line-wrap-1 {
+    justify-content:
+      flex-start;
+
+    padding-right:
+      7%;
+  }
+
+
+  .about-line-wrap-2 {
+    justify-content:
+      flex-end;
+
+    padding-left:
+      8%;
+  }
+
+
+  .about-line-wrap-3 {
+    justify-content:
+      flex-start;
+
+    padding-right:
+      2%;
+  }
+
+
+  .about-line-wrap-4 {
+    justify-content:
+      flex-end;
+
+    padding-left:
+      12%;
+  }
+
+
+  .about-line {
+    width:
+      auto;
+
+    max-width:
+      100%;
+
+    font-size:
+      clamp(
+        2.35rem,
+        10.5vw,
+        4.4rem
+      );
+
+    line-height:
+      0.94;
+
+    letter-spacing:
+      -0.035em;
+
+    overflow-wrap:
+      anywhere;
+
+    word-break:
+      normal;
+  }
+
+
+  .about-line-glow {
+    left:
+      -10%;
+
+    width:
+      120%;
+
+    height:
+      120%;
+
+    filter:
+      blur(
+        30px
+      );
+
+    background:
+      radial-gradient(
+        ellipse
+        at
+        center,
+
+        rgba(
+          255,
+          255,
+          255,
+          0.07
+        )
+        0%,
+
+        rgba(
+          185,
+          185,
+          185,
+          0.026
+        )
+        38%,
+
+        transparent
+        72%
+      );
+  }
+
+
+  .about-footnote {
+    margin-top:
+      4rem;
+
+    margin-left:
+      auto;
+
+    font-size:
+      0.76rem;
+
+    max-width:
+      70%;
+
+    text-align:
+      right;
+  }
+
+
+  .about-cloud {
+    filter:
+      blur(
+        95px
+      );
+  }
+
+
+  .about-cloud-one {
+    width:
+      115vw;
+
+    height:
+      115vw;
+
+    top:
+      -50vw;
+
+    left:
+      -50vw;
+  }
+
+
+  .about-cloud-two {
+    width:
+      110vw;
+
+    height:
+      110vw;
+
+    top:
+      28%;
+
+    right:
+      -70vw;
+  }
+
+
+  .about-cloud-three {
+    width:
+      140vw;
+
+    height:
+      120vw;
+
+    left:
+      -10vw;
+
+    bottom:
+      -70vw;
+  }
+
+
+  .about-mist {
+    top:
+      48%;
+
+    height:
+      15%;
+
+    width:
+      140%;
+
+    left:
+      -20%;
+
+    filter:
+      blur(
+        38px
+      );
+
+    opacity:
+      0.55;
+  }
+
+
+  .about-noise {
+    opacity:
+      0.38;
+
+    animation-duration:
+      0.16s;
+  }
+
+
+  .about::before {
+    opacity:
+      0.14;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (
+  max-width:
+    390px
+) {
+
+  .about {
+    padding-left:
+      max(
+        1rem,
+        env(
+          safe-area-inset-left
+        )
+      );
+
+    padding-right:
+      max(
+        1rem,
+        env(
+          safe-area-inset-right
+        )
+      );
+  }
+
+
+  .about-line-wrap {
+    min-height:
+      28svh;
+  }
+
+
+  .about-line {
+    font-size:
+      clamp(
+        2.1rem,
+        10vw,
+        3.65rem
+      );
+  }
+
+
+  .about-line-wrap-2 {
+    padding-left:
+      5%;
+  }
+
+
+  .about-line-wrap-4 {
+    padding-left:
+      8%;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+  prefers-reduced-motion:
+    reduce
+) {
+
+  .about-cloud,
+  .about-noise {
+    animation:
+      none;
+  }
+
+
+  .about-line-motion {
+    filter:
+      none !important;
+  }
+
+
+  .about-line {
+    transition:
+      none;
+  }
+}

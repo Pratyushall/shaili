@@ -1,0 +1,477 @@
+/* =========================================================
+   FLOATING SCROLL FOOTER
+
+   SCROLL DOWN:
+   appears at bottom-right
+
+   SCROLL UP:
+   disappears
+
+   IMAGE:
+   /public/images/footer.png
+========================================================= */
+
+.scroll-footer {
+  position:
+    fixed;
+
+  z-index:
+    7000;
+
+  /*
+    SMALL BOTTOM-RIGHT POSITION
+  */
+
+  right:
+    max(
+      1.15rem,
+      env(
+        safe-area-inset-right
+      )
+    );
+
+  bottom:
+    max(
+      1.15rem,
+      env(
+        safe-area-inset-bottom
+      )
+    );
+
+
+  /*
+    Only as wide as the artwork.
+    It no longer occupies the whole screen.
+  */
+
+  width:
+    auto;
+
+  height:
+    auto;
+
+
+  display:
+    block;
+
+
+  pointer-events:
+    none;
+
+
+  /*
+    HIDDEN STATE
+
+    Slightly below + slightly smaller.
+    This makes it feel like the little image
+    is slipping out of the viewport.
+  */
+
+  opacity:
+    0;
+
+  visibility:
+    hidden;
+
+  transform:
+    translate3d(
+      0,
+      calc(
+        100% +
+        2.5rem
+      ),
+      0
+    )
+    scale(
+      0.94
+    );
+
+
+  transform-origin:
+    right
+    bottom;
+
+
+  will-change:
+    transform,
+    opacity;
+
+
+  transition:
+
+    transform
+    0.68s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    ),
+
+    opacity
+    0.38s
+    ease,
+
+    visibility
+    0s
+    linear
+    0.68s;
+}
+
+
+/* =========================================================
+   VISIBLE STATE
+========================================================= */
+
+.scroll-footer-visible {
+  opacity:
+    1;
+
+  visibility:
+    visible;
+
+
+  transform:
+    translate3d(
+      0,
+      0,
+      0
+    )
+    scale(
+      1
+    );
+
+
+  transition:
+
+    transform
+    0.68s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    ),
+
+    opacity
+    0.38s
+    ease,
+
+    visibility
+    0s
+    linear
+    0s;
+}
+
+
+/* =========================================================
+   IMAGE WRAPPER
+========================================================= */
+
+.scroll-footer-image-wrap {
+  position:
+    relative;
+
+
+  /*
+    THIS CONTROLS THE SIZE.
+
+    Desktop:
+    minimum 130px
+    fluid around 13vw
+    maximum 210px
+  */
+
+  width:
+    clamp(
+      270px,
+      23vw,
+      210px
+    );
+
+
+  display:
+    block;
+
+
+  overflow:
+    visible;
+
+
+  transform:
+    translateZ(
+      0
+    );
+}
+
+
+/* =========================================================
+   IMAGE
+
+   DISPLAYED EXACTLY AS SUPPLIED.
+
+   NO:
+   - colour correction
+   - brightness
+   - contrast
+   - saturation
+   - blur
+========================================================= */
+
+.scroll-footer-image {
+  display:
+    block;
+
+
+  width:
+    100%;
+
+  height:
+    auto;
+
+
+  object-fit:
+    contain;
+
+  object-position:
+    center;
+
+
+  filter:
+    none;
+
+
+  user-select:
+    none;
+
+  -webkit-user-select:
+    none;
+
+  -webkit-user-drag:
+    none;
+}
+
+
+/* =========================================================
+   OPTIONAL VERY SUBTLE HOVER-LIKE DEPTH
+
+   Since pointer events are disabled this is static,
+   not interactive.
+========================================================= */
+
+.scroll-footer-image-wrap::before {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  z-index:
+    -1;
+
+  left:
+    10%;
+
+  right:
+    4%;
+
+  bottom:
+    -8%;
+
+  height:
+    24%;
+
+
+  border-radius:
+    50%;
+
+
+  background:
+    rgba(
+      0,
+      0,
+      0,
+      0.28
+    );
+
+
+  filter:
+    blur(
+      20px
+    );
+
+
+  opacity:
+    0.65;
+
+
+  pointer-events:
+    none;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (
+  max-width:
+    900px
+) {
+
+  .scroll-footer {
+    right:
+      max(
+        1rem,
+        env(
+          safe-area-inset-right
+        )
+      );
+
+    bottom:
+      max(
+        1rem,
+        env(
+          safe-area-inset-bottom
+        )
+      );
+  }
+
+
+  .scroll-footer-image-wrap {
+    width:
+      clamp(
+        120px,
+        18vw,
+        175px
+      );
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (
+  max-width:
+    700px
+) {
+
+  .scroll-footer {
+    right:
+      max(
+        0.85rem,
+        env(
+          safe-area-inset-right
+        )
+      );
+
+    bottom:
+      max(
+        0.85rem,
+        env(
+          safe-area-inset-bottom
+        )
+      );
+  }
+
+
+  .scroll-footer-image-wrap {
+    /*
+      Small little corner image.
+    */
+
+    width:
+      clamp(
+        105px,
+        31vw,
+        145px
+      );
+  }
+
+
+  .scroll-footer {
+    transform:
+      translate3d(
+        0,
+        calc(
+          100% +
+          2rem
+        ),
+        0
+      )
+      scale(
+        0.94
+      );
+  }
+
+
+  .scroll-footer-visible {
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      )
+      scale(
+        1
+      );
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONE
+========================================================= */
+
+@media (
+  max-width:
+    390px
+) {
+
+  .scroll-footer {
+    right:
+      max(
+        0.7rem,
+        env(
+          safe-area-inset-right
+        )
+      );
+
+    bottom:
+      max(
+        0.7rem,
+        env(
+          safe-area-inset-bottom
+        )
+      );
+  }
+
+
+  .scroll-footer-image-wrap {
+    width:
+      clamp(
+        95px,
+        29vw,
+        125px
+      );
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+  prefers-reduced-motion:
+    reduce
+) {
+
+  .scroll-footer,
+  .scroll-footer-visible {
+    transition:
+      none;
+  }
+}

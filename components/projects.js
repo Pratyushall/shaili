@@ -4,44 +4,110 @@ import {
   motion,
   useMotionValueEvent,
   useScroll,
+  useSpring,
   useTransform,
 } from "motion/react";
-import { useRef, useState } from "react";
+
+import {
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+
+
+/* =========================================================
+   PROJECTS
+========================================================= */
 
 const projects = [
   {
     number: "01",
     name: "Lusso Interiors",
     url: "https://lussointeriors.in",
-    image: "/images/projects/lusso.jpg",
-    position: "project-one",
-    rotation: -4,
+    image: "/images/lusso.png",
+    rotation: -3.5,
   },
   {
     number: "02",
     name: "Interior Design Calculator",
     url: "https://interiordesigncalculator.com",
-    image: "/images/projects/calculator.jpg",
-    position: "project-two",
-    rotation: 3,
+    image: "/images/calc.png",
+    rotation: 2.5,
   },
   {
     number: "03",
     name: "Balqony Sitralu",
     url: "https://balqonysitralu.in",
-    image: "/images/projects/balqony.jpg",
-    position: "project-three",
+    image: "/images/bq.png",
     rotation: -2,
   },
   {
     number: "04",
     name: "Vama Living",
     url: "https://vamaliving.com",
-    image: "/images/projects/vama.jpg",
-    position: "project-four",
-    rotation: 4,
+    image: "/images/vama.png",
+    rotation: 3.5,
   },
 ];
+
+
+const TAU =
+  Math.PI * 2;
+
+
+/* =========================================================
+   VIEWPORT
+========================================================= */
+
+function useViewport() {
+  const [viewport, setViewport] =
+    useState({
+      width: 1440,
+      height: 900,
+      mobile: false,
+    });
+
+
+  useEffect(() => {
+    function update() {
+      setViewport({
+        width:
+          window.innerWidth,
+
+        height:
+          window.innerHeight,
+
+        mobile:
+          window.innerWidth <= 700,
+      });
+    }
+
+
+    update();
+
+
+    window.addEventListener(
+      "resize",
+      update
+    );
+
+
+    return () => {
+      window.removeEventListener(
+        "resize",
+        update
+      );
+    };
+  }, []);
+
+
+  return viewport;
+}
+
+
+/* =========================================================
+   PROJECT CARD
+========================================================= */
 
 function ProjectCard({
   project,
@@ -49,231 +115,618 @@ function ProjectCard({
   total,
   progress,
   activeProject,
+  viewport,
 }) {
-  const segment = 1 / total;
-  const start = index * segment;
-  const end = (index + 1) * segment;
+  const {
+    width,
+    height,
+    mobile,
+  } = viewport;
 
-  let opacityInput;
-  let opacityOutput;
 
-  let yInput;
-  let yOutput;
+  /*
+    Four cards begin evenly distributed
+    around the orbit.
+  */
 
-  let scaleInput;
-  let scaleOutput;
+  const baseAngle =
+    (
+      index /
+      total
+    )
+    *
+    TAU;
 
-  let rotateInput;
-  let rotateOutput;
 
-  if (index === 0) {
-    opacityInput = [0, end - 0.06, end];
-    opacityOutput = [1, 1, 0];
+  /*
+    We rotate only enough for:
 
-    yInput = [0, end - 0.06, end];
-    yOutput = [0, 0, -100];
+    01 -> 02 -> 03 -> 04
 
-    scaleInput = [0, end - 0.06, end];
-    scaleOutput = [1, 1, 0.92];
+    We DON'T rotate a full 360 degrees because
+    that would bring 01 back to the front
+    at the end of the section.
+  */
 
-    rotateInput = [0, end];
-    rotateOutput = [project.rotation, project.rotation - 3];
-  } else if (index === total - 1) {
-    opacityInput = [start - 0.06, start + 0.025, 1];
-    opacityOutput = [0, 1, 1];
+  const orbitDistance =
+    TAU *
+    (
+      (
+        total -
+        1
+      )
+      /
+      total
+    );
 
-    yInput = [start - 0.06, start + 0.025, 1];
-    yOutput = [130, 0, 0];
 
-    scaleInput = [start - 0.06, start + 0.025, 1];
-    scaleOutput = [0.86, 1, 1];
+  const angle =
+    useTransform(
+      progress,
+      (latest) =>
+        baseAngle -
+        latest *
+        orbitDistance
+    );
 
-    rotateInput = [start - 0.06, start + 0.025, 1];
-    rotateOutput = [
-      project.rotation + 5,
-      project.rotation,
-      project.rotation,
-    ];
-  } else {
-    opacityInput = [
-      start - 0.06,
-      start + 0.025,
-      end - 0.06,
-      end,
-    ];
 
-    opacityOutput = [0, 1, 1, 0];
+  /* =======================================================
+     ORBIT SIZE
+  ======================================================= */
 
-    yInput = [
-      start - 0.06,
-      start + 0.025,
-      end - 0.06,
-      end,
-    ];
+  const radiusX =
+    mobile
+      ? width * 0.34
+      : width * 0.335;
 
-    yOutput = [130, 0, 0, -100];
 
-    scaleInput = [
-      start - 0.06,
-      start + 0.025,
-      end - 0.06,
-      end,
-    ];
+  const radiusY =
+    mobile
+      ? height * 0.265
+      : height * 0.28;
 
-    scaleOutput = [0.86, 1, 1, 0.92];
 
-    rotateInput = [
-      start - 0.06,
-      start + 0.025,
-      end - 0.06,
-      end,
-    ];
+  /* =======================================================
+     POSITION
+  ======================================================= */
 
-    rotateOutput = [
-      project.rotation + 5,
-      project.rotation,
-      project.rotation,
-      project.rotation - 3,
-    ];
-  }
+  const x =
+    useTransform(
+      angle,
+      (current) =>
+        Math.sin(
+          current
+        )
+        *
+        radiusX
+    );
 
-  const opacity = useTransform(
-    progress,
-    opacityInput,
-    opacityOutput
-  );
 
-  const y = useTransform(
-    progress,
-    yInput,
-    yOutput
-  );
+  const y =
+    useTransform(
+      angle,
+      (current) =>
+        Math.cos(
+          current
+        )
+        *
+        radiusY
+    );
 
-  const scale = useTransform(
-    progress,
-    scaleInput,
-    scaleOutput
-  );
 
-  const rotate = useTransform(
-    progress,
-    rotateInput,
-    rotateOutput
-  );
+  /* =======================================================
+     DEPTH
+
+     cos(angle):
+      1 = front
+      0 = side
+     -1 = back
+  ======================================================= */
+
+  const depth =
+    useTransform(
+      angle,
+      (current) =>
+        Math.cos(
+          current
+        )
+    );
+
+
+  /* =======================================================
+     SCALE
+  ======================================================= */
+
+  const scale =
+    useTransform(
+      depth,
+      [-1, 0, 1],
+
+      mobile
+        ? [0.7, 0.82, 1.02]
+        : [0.7, 0.84, 1.045]
+    );
+
+
+  /* =======================================================
+     OPACITY
+  ======================================================= */
+
+  const opacity =
+    useTransform(
+      depth,
+      [-1, -0.1, 1],
+      [0.38, 0.72, 1]
+    );
+
+
+  /* =======================================================
+     DEPTH FILTER
+  ======================================================= */
+
+  const filter =
+    useTransform(
+      depth,
+      (current) => {
+        const normalized =
+          (
+            current +
+            1
+          )
+          /
+          2;
+
+
+        const blur =
+          (
+            1 -
+            normalized
+          )
+          *
+          1.5;
+
+
+        const saturation =
+          0.74 +
+          normalized *
+          0.26;
+
+
+        const brightness =
+          0.76 +
+          normalized *
+          0.24;
+
+
+        return `
+          blur(${blur}px)
+          saturate(${saturation})
+          brightness(${brightness})
+        `;
+      }
+    );
+
+
+  /* =======================================================
+     ROTATION
+
+     Scrapbook angle while away.
+
+     Front card becomes much straighter.
+  ======================================================= */
+
+  const rotate =
+    useTransform(
+      angle,
+      (current) => {
+        const currentDepth =
+          Math.cos(
+            current
+          );
+
+
+        const frontness =
+          (
+            currentDepth +
+            1
+          )
+          /
+          2;
+
+
+        const scrapbookRotation =
+          project.rotation *
+          (
+            1 -
+            frontness *
+            0.86
+          );
+
+
+        const orbitalTilt =
+          Math.sin(
+            current
+          )
+          *
+          2.7;
+
+
+        return (
+          scrapbookRotation +
+          orbitalTilt
+        );
+      }
+    );
+
+
+  /* =======================================================
+     STACKING
+  ======================================================= */
+
+  const zIndex =
+    useTransform(
+      depth,
+      (current) =>
+        Math.round(
+          (
+            current +
+            1
+          )
+          *
+          45
+        )
+        +
+        10
+    );
+
+
+  const isActive =
+    activeProject ===
+    index;
+
 
   return (
     <motion.a
-      href={project.url}
+      href={
+        project.url
+      }
+
       target="_blank"
+
       rel="noopener noreferrer"
-      className={`project-card ${project.position}`}
+
+      aria-label={`Open ${project.name}`}
+
+      className="project-card"
+
+      data-active={
+        isActive
+          ? "true"
+          : "false"
+      }
+
       style={{
-        opacity,
+        x,
         y,
         scale,
         rotate,
+        opacity,
+        filter,
+        zIndex,
+
         pointerEvents:
-          activeProject === index ? "auto" : "none",
-        zIndex: activeProject === index ? 10 : index,
-      }}
-      whileHover={{
-        scale: 1.025,
-      }}
-      transition={{
-        type: "spring",
-        stiffness: 180,
-        damping: 20,
+          isActive
+            ? "auto"
+            : "none",
       }}
     >
+
+      {/* IMAGE */}
+
       <div
         className="project-image"
+
         style={{
-          backgroundImage: `url("${project.image}")`,
+          backgroundImage:
+            `url("${project.image}")`,
         }}
       />
 
-      <div className="project-overlay" />
 
-      <span className="project-number">
+      {/* FILM WASH */}
+
+      <div
+        className="project-image-wash"
+      />
+
+
+      {/* NUMBER */}
+
+      <span
+        className="project-number"
+      >
         {project.number}
       </span>
 
-      <div className="project-info">
-        <h2>{project.name}</h2>
 
-        <span className="project-link">
-          wander in ↗
+      {/* PROJECT INFO */}
+
+      <div
+        className="project-info"
+      >
+
+        <h2>
+          {project.name}
+        </h2>
+
+
+        <span
+          className="project-link"
+        >
+          Explore
         </span>
+
       </div>
+
     </motion.a>
   );
 }
 
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
 export default function Projects() {
-  const sectionRef = useRef(null);
+  const sectionRef =
+    useRef(null);
 
-  const [activeProject, setActiveProject] =
-    useState(0);
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end end"],
+  const viewport =
+    useViewport();
+
+
+  const [
+    activeProject,
+    setActiveProject,
+  ] = useState(0);
+
+
+  /* =======================================================
+     SCROLL
+  ======================================================= */
+
+  const {
+    scrollYProgress,
+  } = useScroll({
+    target:
+      sectionRef,
+
+    offset: [
+      "start start",
+      "end end",
+    ],
   });
 
+
+  /*
+    Smooth out wheel / trackpad movement.
+
+    Still 100% controlled by scroll.
+  */
+
+  const smoothProgress =
+    useSpring(
+      scrollYProgress,
+      {
+        stiffness: 52,
+        damping: 20,
+        mass: 0.82,
+        restDelta: 0.0005,
+      }
+    );
+
+
+  /* =======================================================
+     ACTIVE PROJECT
+  ======================================================= */
+
   useMotionValueEvent(
-    scrollYProgress,
+    smoothProgress,
     "change",
     (latest) => {
-      const index = Math.min(
-        projects.length - 1,
-        Math.floor(latest * projects.length)
-      );
+      /*
+        0    -> project 01
+        .33  -> project 02
+        .66  -> project 03
+        1    -> project 04
+      */
 
-      setActiveProject(index);
+      const index =
+        Math.min(
+          projects.length -
+          1,
+
+          Math.max(
+            0,
+
+            Math.round(
+              latest *
+              (
+                projects.length -
+                1
+              )
+            )
+          )
+        );
+
+
+      setActiveProject(
+        index
+      );
     }
   );
 
+
   return (
     <section
-      ref={sectionRef}
+      ref={
+        sectionRef
+      }
+
       className="projects"
     >
-      <div className="projects-sticky">
-        <div className="projects-grain" />
 
-        <div className="projects-header">
-          <p>things i made</p>
+      <div
+        className="projects-sticky"
+      >
+
+        {/* =================================================
+            BRIGHT RED FILM FIELD
+        ================================================= */}
+
+        <div
+          className="projects-red-burn"
+        />
+
+
+        {/* =================================================
+            HEAVY FILM GRAIN
+
+            Two layers intentionally.
+        ================================================= */}
+
+        <div
+          className="
+            projects-grain
+            projects-grain-heavy
+          "
+        />
+
+        <div
+          className="
+            projects-grain
+            projects-grain-fine
+          "
+        />
+
+
+        {/* =================================================
+            HEADER
+        ================================================= */}
+
+        <div
+          className="projects-header"
+        >
+
+          <p>
+            things i made
+          </p>
+
 
           <span>
-            {String(activeProject + 1).padStart(
+            {String(
+              activeProject +
+              1
+            ).padStart(
               2,
               "0"
             )}
+
             {" / "}
-            {String(projects.length).padStart(
+
+            {String(
+              projects.length
+            ).padStart(
               2,
               "0"
             )}
           </span>
+
         </div>
 
-        <div className="projects-stage">
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={project.name}
-              project={project}
-              index={index}
-              total={projects.length}
-              progress={scrollYProgress}
-              activeProject={activeProject}
-            />
-          ))}
+
+        {/* =================================================
+            ORBIT
+
+            CENTER IS INTENTIONALLY EMPTY.
+        ================================================= */}
+
+        <div
+          className="projects-stage"
+        >
+
+          {
+            projects.map(
+              (
+                project,
+                index
+              ) => (
+
+                <ProjectCard
+                  key={
+                    project.name
+                  }
+
+                  project={
+                    project
+                  }
+
+                  index={
+                    index
+                  }
+
+                  total={
+                    projects.length
+                  }
+
+                  progress={
+                    smoothProgress
+                  }
+
+                  activeProject={
+                    activeProject
+                  }
+
+                  viewport={
+                    viewport
+                  }
+                />
+
+              )
+            )
+          }
+
         </div>
 
-        <p className="projects-scroll">
-          keep scrolling ↓
+
+        {/* =================================================
+            CENTRE MARK
+
+            Very quiet so negative space remains.
+        ================================================= */}
+
+        <div
+          className="projects-centre-mark"
+
+          aria-hidden="true"
+        >
+          <span />
+        </div>
+
+
+        {/* =================================================
+            SCROLL NOTE
+        ================================================= */}
+
+        <p
+          className="projects-scroll"
+        >
+          scroll to orbit ↓
         </p>
+
       </div>
+
     </section>
   );
 }

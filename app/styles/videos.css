@@ -1,0 +1,2839 @@
+/* =========================================================
+   VIDEOS
+
+   DEEP MIDNIGHT BLUE
+   PREMIUM FILM WALL
+   HEAVY SMOOTH GRAIN
+   SUBTLE ELECTRIC-BLUE GLOW
+========================================================= */
+
+.videos {
+  position:
+    relative;
+
+  width:
+    100%;
+
+  min-height:
+    100svh;
+
+  overflow:
+    hidden;
+
+  padding:
+    clamp(
+      7rem,
+      10vw,
+      10rem
+    )
+    clamp(
+      1rem,
+      4vw,
+      4.5rem
+    )
+    clamp(
+      7rem,
+      10vw,
+      10rem
+    );
+
+  color:
+    #eef4ff;
+
+  background:
+
+    radial-gradient(
+      circle
+      at
+      16%
+      4%,
+
+      rgba(
+        73,
+        121,
+        184,
+        0.18
+      )
+      0%,
+
+      rgba(
+        31,
+        73,
+        128,
+        0.08
+      )
+      25%,
+
+      transparent
+      48%
+    ),
+
+    radial-gradient(
+      circle
+      at
+      88%
+      80%,
+
+      rgba(
+        48,
+        89,
+        150,
+        0.18
+      )
+      0%,
+
+      rgba(
+        15,
+        42,
+        80,
+        0.1
+      )
+      28%,
+
+      transparent
+      52%
+    ),
+
+    radial-gradient(
+      circle
+      at
+      56%
+      45%,
+
+      rgba(
+        52,
+        88,
+        133,
+        0.08
+      )
+      0%,
+
+      transparent
+      52%
+    ),
+
+    linear-gradient(
+      145deg,
+
+      #020713
+      0%,
+
+      #041020
+      24%,
+
+      #06172b
+      49%,
+
+      #03101e
+      72%,
+
+      #010611
+      100%
+    );
+
+  isolation:
+    isolate;
+}
+
+
+/* =========================================================
+   VERY SUBTLE BLUE FILM WASH
+========================================================= */
+
+.videos::before {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  z-index:
+    0;
+
+  inset:
+    0;
+
+  pointer-events:
+    none;
+
+  background:
+
+    linear-gradient(
+      115deg,
+
+      transparent
+      0%,
+
+      rgba(
+        118,
+        166,
+        222,
+        0.025
+      )
+      34%,
+
+      rgba(
+        190,
+        219,
+        247,
+        0.045
+      )
+      49%,
+
+      rgba(
+        78,
+        124,
+        180,
+        0.018
+      )
+      63%,
+
+      transparent
+      100%
+    );
+
+  mix-blend-mode:
+    screen;
+}
+
+
+/* =========================================================
+   EDGE VIGNETTE
+========================================================= */
+
+.videos::after {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  z-index:
+    80;
+
+  inset:
+    0;
+
+  pointer-events:
+    none;
+
+  background:
+
+    radial-gradient(
+      ellipse
+      at center,
+
+      transparent
+      36%,
+
+      rgba(
+        0,
+        4,
+        13,
+        0.08
+      )
+      68%,
+
+      rgba(
+        0,
+        3,
+        11,
+        0.36
+      )
+      100%
+    ),
+
+    linear-gradient(
+      to bottom,
+
+      rgba(
+        0,
+        3,
+        10,
+        0.1
+      ),
+
+      transparent
+      14%,
+
+      transparent
+      82%,
+
+      rgba(
+        0,
+        3,
+        10,
+        0.19
+      )
+    );
+}
+
+
+/* =========================================================
+   BLUE BLOOMS
+========================================================= */
+
+.videos-blue-bloom {
+  position:
+    absolute;
+
+  z-index:
+    1;
+
+  border-radius:
+    50%;
+
+  pointer-events:
+    none;
+
+  filter:
+    blur(
+      120px
+    );
+
+  will-change:
+    transform;
+}
+
+
+.videos-blue-bloom-one {
+  width:
+    55vw;
+
+  height:
+    55vw;
+
+  top:
+    -25vw;
+
+  left:
+    -21vw;
+
+  opacity:
+    0.42;
+
+  background:
+    rgba(
+      67,
+      114,
+      178,
+      0.19
+    );
+
+  animation:
+    videosBloomOne
+    17s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+.videos-blue-bloom-two {
+  width:
+    50vw;
+
+  height:
+    50vw;
+
+  top:
+    30%;
+
+  right:
+    -28vw;
+
+  opacity:
+    0.36;
+
+  background:
+    rgba(
+      64,
+      109,
+      172,
+      0.15
+    );
+
+  animation:
+    videosBloomTwo
+    21s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+.videos-blue-bloom-three {
+  width:
+    62vw;
+
+  height:
+    54vw;
+
+  left:
+    24%;
+
+  bottom:
+    -38vw;
+
+  opacity:
+    0.46;
+
+  background:
+    rgba(
+      12,
+      42,
+      84,
+      0.5
+    );
+
+  animation:
+    videosBloomThree
+    24s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+@keyframes videosBloomOne {
+
+  from {
+    transform:
+      translate3d(
+        -4%,
+        -3%,
+        0
+      )
+      scale(1);
+  }
+
+  to {
+    transform:
+      translate3d(
+        18%,
+        13%,
+        0
+      )
+      scale(1.14);
+  }
+}
+
+
+@keyframes videosBloomTwo {
+
+  from {
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      )
+      scale(1);
+  }
+
+  to {
+    transform:
+      translate3d(
+        -22%,
+        10%,
+        0
+      )
+      scale(1.17);
+  }
+}
+
+
+@keyframes videosBloomThree {
+
+  from {
+    transform:
+      translate3d(
+        -4%,
+        0,
+        0
+      )
+      scale(1);
+  }
+
+  to {
+    transform:
+      translate3d(
+        11%,
+        -9%,
+        0
+      )
+      scale(1.12);
+  }
+}
+
+
+/* =========================================================
+   HORIZONTAL ATMOSPHERIC LIGHT
+========================================================= */
+
+.videos-light {
+  position:
+    absolute;
+
+  z-index:
+    2;
+
+  left:
+    -15%;
+
+  top:
+    38%;
+
+  width:
+    130%;
+
+  height:
+    20%;
+
+  pointer-events:
+    none;
+
+  opacity:
+    0.7;
+
+  filter:
+    blur(
+      60px
+    );
+
+  transform:
+    rotate(-3deg);
+
+  background:
+    linear-gradient(
+      90deg,
+
+      transparent
+      0%,
+
+      rgba(
+        73,
+        116,
+        172,
+        0.018
+      )
+      18%,
+
+      rgba(
+        130,
+        169,
+        215,
+        0.09
+      )
+      48%,
+
+      rgba(
+        64,
+        104,
+        160,
+        0.025
+      )
+      76%,
+
+      transparent
+      100%
+    );
+}
+
+
+/* =========================================================
+   HEAVY BUT SMOOTH FILM GRAIN
+========================================================= */
+
+.videos-grain {
+  position:
+    absolute;
+
+  z-index:
+    70;
+
+  inset:
+    -50%;
+
+  width:
+    200%;
+
+  height:
+    200%;
+
+  pointer-events:
+    none;
+
+  opacity:
+    0.29;
+
+  mix-blend-mode:
+    soft-light;
+
+  background-image:
+    url(
+      "data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='premiumVideoNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23premiumVideoNoise)' opacity='1'/%3E%3C/svg%3E"
+    );
+
+  animation:
+    videosNoise
+    0.16s
+    steps(2)
+    infinite;
+}
+
+
+.videos-grain::after {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  opacity:
+    0.42;
+
+  background-image:
+    url(
+      "data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='premiumVideoFineNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.18' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23premiumVideoFineNoise)' opacity='.85'/%3E%3C/svg%3E"
+    );
+}
+
+
+@keyframes videosNoise {
+
+  0% {
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      );
+  }
+
+
+  16% {
+    transform:
+      translate3d(
+        -2.5%,
+        3%,
+        0
+      );
+  }
+
+
+  33% {
+    transform:
+      translate3d(
+        3.5%,
+        -2%,
+        0
+      );
+  }
+
+
+  50% {
+    transform:
+      translate3d(
+        -3%,
+        -3%,
+        0
+      );
+  }
+
+
+  66% {
+    transform:
+      translate3d(
+        3%,
+        3.5%,
+        0
+      );
+  }
+
+
+  83% {
+    transform:
+      translate3d(
+        -3.5%,
+        2%,
+        0
+      );
+  }
+
+
+  100% {
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      );
+  }
+}
+
+
+/* =========================================================
+   INNER
+========================================================= */
+
+.videos-inner {
+  position:
+    relative;
+
+  z-index:
+    10;
+
+  width:
+    100%;
+
+  max-width:
+    1480px;
+
+  margin:
+    0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.videos-header {
+  position:
+    relative;
+
+  width:
+    100%;
+
+  margin:
+    0 auto
+    clamp(
+      3rem,
+      6vw,
+      6rem
+    );
+
+  display:
+    flex;
+
+  align-items:
+    flex-end;
+
+  justify-content:
+    space-between;
+
+  gap:
+    2rem;
+}
+
+
+.videos-header-copy {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    0.8rem;
+}
+
+
+.videos-header-copy p {
+  margin:
+    0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      0.7rem,
+      0.8vw,
+      0.86rem
+    );
+
+  font-style:
+    italic;
+
+  letter-spacing:
+    0.055em;
+
+  color:
+    rgba(
+      208,
+      222,
+      241,
+      0.58
+    );
+}
+
+
+.videos-header-copy h1 {
+  margin:
+    0;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size:
+    clamp(
+      3rem,
+      7vw,
+      7rem
+    );
+
+  font-weight:
+    500;
+
+  line-height:
+    0.88;
+
+  letter-spacing:
+    -0.065em;
+
+  color:
+    rgba(
+      236,
+      243,
+      252,
+      0.96
+    );
+
+  text-shadow:
+    0
+    0
+    45px
+    rgba(
+      105,
+      160,
+      224,
+      0.06
+    );
+}
+
+
+.videos-header-meta {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    0.8rem;
+
+  padding-bottom:
+    0.5rem;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    0.68rem;
+
+  letter-spacing:
+    0.1em;
+
+  color:
+    rgba(
+      209,
+      225,
+      245,
+      0.48
+    );
+}
+
+
+.videos-header-meta i {
+  width:
+    7px;
+
+  height:
+    7px;
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(
+      149,
+      196,
+      250,
+      0.76
+    );
+
+  box-shadow:
+    0
+    0
+    18px
+    rgba(
+      100,
+      165,
+      240,
+      0.52
+    );
+}
+
+
+/* =========================================================
+   CLEAN SIX-FILM GRID
+
+   DESKTOP:
+   3 x 2
+
+   TABLET:
+   2 x 3
+
+   MOBILE:
+   1 column
+========================================================= */
+
+.videos-grid {
+  position:
+    relative;
+
+  z-index:
+    5;
+
+  width:
+    100%;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(
+        0,
+        1fr
+      )
+    );
+
+  gap:
+    clamp(
+      1rem,
+      2vw,
+      1.8rem
+    );
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.video-card {
+  position:
+    relative;
+
+  aspect-ratio:
+    4 / 5;
+
+  min-width:
+    0;
+
+  overflow:
+    hidden;
+
+  isolation:
+    isolate;
+
+  border:
+    1px solid
+    rgba(
+      171,
+      205,
+      243,
+      0.12
+    );
+
+  border-radius:
+    22px;
+
+  background:
+    #020712;
+
+  cursor:
+    pointer;
+
+  outline:
+    none;
+
+  box-shadow:
+
+    0
+    26px
+    70px
+    rgba(
+      0,
+      4,
+      14,
+      0.36
+    ),
+
+    inset
+    0
+    1px
+    0
+    rgba(
+      255,
+      255,
+      255,
+      0.035
+    );
+
+  transform:
+    translateZ(0);
+
+  transition:
+
+    transform
+    0.6s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    ),
+
+    border-color
+    0.45s
+    ease,
+
+    box-shadow
+    0.55s
+    ease;
+}
+
+
+.video-card:hover,
+.video-card:focus-visible {
+  transform:
+    translateY(
+      -7px
+    );
+
+  border-color:
+    rgba(
+      151,
+      199,
+      255,
+      0.3
+    );
+
+  box-shadow:
+
+    0
+    34px
+    85px
+    rgba(
+      0,
+      5,
+      18,
+      0.44
+    ),
+
+    0
+    0
+    42px
+    rgba(
+      56,
+      123,
+      204,
+      0.12
+    ),
+
+    0
+    0
+    100px
+    rgba(
+      46,
+      103,
+      180,
+      0.055
+    ),
+
+    inset
+    0
+    1px
+    0
+    rgba(
+      255,
+      255,
+      255,
+      0.055
+    );
+}
+
+
+/* =========================================================
+   CARD AURA
+========================================================= */
+
+.video-card-aura {
+  position:
+    absolute;
+
+  z-index:
+    0;
+
+  width:
+    90%;
+
+  height:
+    90%;
+
+  left:
+    5%;
+
+  bottom:
+    -38%;
+
+  border-radius:
+    50%;
+
+  pointer-events:
+    none;
+
+  opacity:
+    0;
+
+  filter:
+    blur(
+      70px
+    );
+
+  background:
+    radial-gradient(
+      circle,
+
+      rgba(
+        80,
+        151,
+        232,
+        0.3
+      )
+      0%,
+
+      rgba(
+        48,
+        106,
+        180,
+        0.1
+      )
+      40%,
+
+      transparent
+      72%
+    );
+
+  transition:
+    opacity
+    0.55s
+    ease;
+}
+
+
+.video-card:hover
+.video-card-aura,
+
+.video-card:focus-visible
+.video-card-aura {
+  opacity:
+    0.72;
+}
+
+
+/* =========================================================
+   VIDEO
+========================================================= */
+
+.video-preview {
+  position:
+    absolute;
+
+  z-index:
+    1;
+
+  inset:
+    0;
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  object-fit:
+    cover;
+
+  object-position:
+    center;
+
+  background:
+    #020712;
+
+  transform:
+    scale(
+      1.015
+    );
+
+  filter:
+    saturate(
+      0.97
+    )
+    contrast(
+      1.025
+    )
+    brightness(
+      0.95
+    );
+
+  transition:
+
+    transform
+    1.15s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    ),
+
+    filter
+    0.75s
+    ease;
+}
+
+
+.video-card:hover
+.video-preview,
+
+.video-card:focus-visible
+.video-preview {
+  transform:
+    scale(
+      1.045
+    );
+
+  filter:
+    saturate(
+      1.02
+    )
+    contrast(
+      1.02
+    )
+    brightness(
+      1.015
+    );
+}
+
+
+/* =========================================================
+   VIGNETTE
+========================================================= */
+
+.video-card-vignette {
+  position:
+    absolute;
+
+  z-index:
+    3;
+
+  inset:
+    0;
+
+  pointer-events:
+    none;
+
+  background:
+
+    linear-gradient(
+      to bottom,
+
+      rgba(
+        0,
+        5,
+        15,
+        0.22
+      )
+      0%,
+
+      transparent
+      25%,
+
+      transparent
+      57%,
+
+      rgba(
+        0,
+        5,
+        16,
+        0.64
+      )
+      100%
+    ),
+
+    radial-gradient(
+      ellipse
+      at center,
+
+      transparent
+      45%,
+
+      rgba(
+        0,
+        5,
+        16,
+        0.16
+      )
+      100%
+    );
+}
+
+
+/* =========================================================
+   GLASS LIGHT ON CARD
+========================================================= */
+
+.video-card-glass {
+  position:
+    absolute;
+
+  z-index:
+    4;
+
+  inset:
+    0;
+
+  pointer-events:
+    none;
+
+  opacity:
+    0.38;
+
+  background:
+
+    linear-gradient(
+      125deg,
+
+      rgba(
+        255,
+        255,
+        255,
+        0.055
+      )
+      0%,
+
+      transparent
+      15%,
+
+      transparent
+      68%,
+
+      rgba(
+        125,
+        180,
+        240,
+        0.025
+      )
+      100%
+    );
+
+  mix-blend-mode:
+    screen;
+}
+
+
+/* =========================================================
+   META
+========================================================= */
+
+.video-card-meta {
+  position:
+    absolute;
+
+  z-index:
+    8;
+
+  top:
+    1rem;
+
+  left:
+    1rem;
+
+  right:
+    1rem;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    1rem;
+
+  pointer-events:
+    none;
+}
+
+
+.video-card-index {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    0.62rem;
+
+  letter-spacing:
+    0.11em;
+
+  color:
+    rgba(
+      238,
+      246,
+      255,
+      0.7
+    );
+
+  text-shadow:
+    0
+    2px
+    14px
+    rgba(
+      0,
+      0,
+      0,
+      0.28
+    );
+}
+
+
+.video-card-label {
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size:
+    0.58rem;
+
+  font-weight:
+    600;
+
+  letter-spacing:
+    0.13em;
+
+  color:
+    rgba(
+      227,
+      239,
+      252,
+      0.56
+    );
+}
+
+
+/* =========================================================
+   PREVIEW CONTROLS
+========================================================= */
+
+.video-card-controls {
+  position:
+    absolute;
+
+  z-index:
+    12;
+
+  left:
+    50%;
+
+  top:
+    50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    )
+    scale(
+      0.88
+    );
+
+  opacity:
+    0;
+
+  pointer-events:
+    none;
+
+  transition:
+
+    opacity
+    0.3s
+    ease,
+
+    transform
+    0.4s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    );
+}
+
+
+.video-card:hover
+.video-card-controls,
+
+.video-card:focus-within
+.video-card-controls {
+  opacity:
+    1;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    )
+    scale(
+      1
+    );
+
+  pointer-events:
+    auto;
+}
+
+
+/* =========================================================
+   GLASS BUTTON
+
+   USED BY PREVIEW + EXISTING DIALOG
+========================================================= */
+
+.video-glass-button {
+  width:
+    48px;
+
+  height:
+    48px;
+
+  flex:
+    0
+    0
+    48px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  margin:
+    0;
+
+  padding:
+    0;
+
+  border:
+    1px solid
+    rgba(
+      210,
+      229,
+      250,
+      0.3
+    );
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(
+      7,
+      17,
+      32,
+      0.28
+    );
+
+  color:
+    rgba(
+      245,
+      250,
+      255,
+      0.96
+    );
+
+  cursor:
+    pointer;
+
+  backdrop-filter:
+    blur(
+      20px
+    )
+    saturate(
+      1.32
+    );
+
+  -webkit-backdrop-filter:
+    blur(
+      20px
+    )
+    saturate(
+      1.32
+    );
+
+  box-shadow:
+
+    inset
+    0
+    1px
+    0
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    ),
+
+    0
+    10px
+    30px
+    rgba(
+      0,
+      3,
+      12,
+      0.3
+    ),
+
+    0
+    0
+    24px
+    rgba(
+      78,
+      146,
+      224,
+      0.08
+    );
+
+  transition:
+
+    transform
+    0.3s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    ),
+
+    background
+    0.3s
+    ease,
+
+    border-color
+    0.3s
+    ease,
+
+    box-shadow
+    0.4s
+    ease;
+}
+
+
+.video-glass-button svg {
+  width:
+    19px;
+
+  height:
+    19px;
+}
+
+
+.video-glass-button:hover {
+  transform:
+    scale(
+      1.09
+    );
+
+  border-color:
+    rgba(
+      216,
+      235,
+      255,
+      0.58
+    );
+
+  background:
+    rgba(
+      89,
+      146,
+      211,
+      0.18
+    );
+
+  box-shadow:
+
+    inset
+    0
+    1px
+    0
+    rgba(
+      255,
+      255,
+      255,
+      0.1
+    ),
+
+    0
+    12px
+    34px
+    rgba(
+      0,
+      4,
+      14,
+      0.32
+    ),
+
+    0
+    0
+    32px
+    rgba(
+      79,
+      153,
+      239,
+      0.18
+    );
+}
+
+
+.video-glass-button:active {
+  transform:
+    scale(
+      0.95
+    );
+}
+
+
+.video-glass-button:focus-visible {
+  outline:
+    2px solid
+    rgba(
+      182,
+      216,
+      255,
+      0.8
+    );
+
+  outline-offset:
+    4px;
+}
+
+
+/* =========================================================
+   OPEN FILM HINT
+========================================================= */
+
+.video-open-hint {
+  position:
+    absolute;
+
+  z-index:
+    9;
+
+  left:
+    1rem;
+
+  right:
+    1rem;
+
+  bottom:
+    1rem;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    1rem;
+
+  pointer-events:
+    none;
+
+  color:
+    rgba(
+      236,
+      245,
+      255,
+      0.7
+    );
+}
+
+
+.video-open-hint span {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    0.68rem;
+
+  font-style:
+    italic;
+
+  letter-spacing:
+    0.025em;
+
+  opacity:
+    0.68;
+
+  transition:
+    opacity
+    0.3s
+    ease;
+}
+
+
+.video-open-hint i {
+  width:
+    31px;
+
+  height:
+    31px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  border:
+    1px solid
+    rgba(
+      219,
+      235,
+      252,
+      0.17
+    );
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(
+      10,
+      24,
+      43,
+      0.16
+    );
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size:
+    0.66rem;
+
+  font-style:
+    normal;
+
+  backdrop-filter:
+    blur(
+      14px
+    );
+
+  -webkit-backdrop-filter:
+    blur(
+      14px
+    );
+
+  transition:
+
+    transform
+    0.4s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    ),
+
+    border-color
+    0.3s
+    ease,
+
+    box-shadow
+    0.35s
+    ease;
+}
+
+
+.video-card:hover
+.video-open-hint span {
+  opacity:
+    1;
+}
+
+
+.video-card:hover
+.video-open-hint i {
+  transform:
+    rotate(
+      8deg
+    )
+    scale(
+      1.06
+    );
+
+  border-color:
+    rgba(
+      186,
+      218,
+      255,
+      0.35
+    );
+
+  box-shadow:
+    0
+    0
+    24px
+    rgba(
+      74,
+      143,
+      225,
+      0.12
+    );
+}
+
+
+/* =========================================================
+   FOOTER NOTE
+========================================================= */
+
+.videos-footer-note {
+  margin-top:
+    clamp(
+      2rem,
+      4vw,
+      4rem
+    );
+
+  display:
+    flex;
+
+  justify-content:
+    space-between;
+
+  gap:
+    2rem;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    0.68rem;
+
+  font-style:
+    italic;
+
+  letter-spacing:
+    0.03em;
+
+  color:
+    rgba(
+      208,
+      224,
+      243,
+      0.35
+    );
+}
+
+
+/* =========================================================
+   EXISTING DIALOG BACKDROP
+========================================================= */
+
+.video-dialog-backdrop {
+  position:
+    fixed;
+
+  z-index:
+    9999;
+
+  inset:
+    0;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  padding:
+    clamp(
+      1rem,
+      3vw,
+      3rem
+    );
+
+  background:
+    rgba(
+      3,
+      4,
+      6,
+      0.82
+    );
+
+  backdrop-filter:
+    blur(
+      24px
+    );
+
+  -webkit-backdrop-filter:
+    blur(
+      24px
+    );
+}
+
+
+/* =========================================================
+   EXISTING DIALOG
+========================================================= */
+
+.video-dialog {
+  position:
+    relative;
+
+  width:
+    min(
+      92vw,
+      1180px
+    );
+
+  height:
+    min(
+      88svh,
+      820px
+    );
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  overflow:
+    hidden;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.2
+    );
+
+  border-radius:
+    12px;
+
+  background:
+    rgba(
+      7,
+      9,
+      12,
+      0.74
+    );
+
+  box-shadow:
+    0
+    40px
+    120px
+    rgba(
+      0,
+      0,
+      0,
+      0.55
+    );
+
+  isolation:
+    isolate;
+}
+
+
+/* =========================================================
+   EXISTING DIALOG VIDEO
+========================================================= */
+
+.video-dialog-media {
+  width:
+    100%;
+
+  height:
+    100%;
+
+  object-fit:
+    contain;
+
+  background:
+    #000;
+}
+
+
+/* =========================================================
+   EXISTING CLOSE
+========================================================= */
+
+.video-dialog-close {
+  position:
+    absolute;
+
+  z-index:
+    20;
+
+  top:
+    1rem;
+
+  right:
+    1rem;
+}
+
+
+/* =========================================================
+   EXISTING DIALOG CONTROLS
+========================================================= */
+
+.video-dialog-controls {
+  position:
+    absolute;
+
+  z-index:
+    20;
+
+  left:
+    50%;
+
+  bottom:
+    1.2rem;
+
+  transform:
+    translateX(
+      -50%
+    );
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    0.65rem;
+}
+
+
+/* =========================================================
+   EXISTING GLASS PANEL
+========================================================= */
+
+.video-glass-panel {
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.3
+    );
+
+  background:
+    rgba(
+      15,
+      18,
+      21,
+      0.24
+    );
+
+  backdrop-filter:
+    blur(
+      18px
+    )
+    saturate(
+      1.25
+    );
+
+  -webkit-backdrop-filter:
+    blur(
+      18px
+    )
+    saturate(
+      1.25
+    );
+
+  box-shadow:
+
+    inset
+    0
+    0
+    0
+    1px
+    rgba(
+      255,
+      255,
+      255,
+      0.04
+    ),
+
+    0
+    10px
+    30px
+    rgba(
+      0,
+      0,
+      0,
+      0.2
+    );
+}
+
+
+/* =========================================================
+   EXISTING VOLUME PANEL
+========================================================= */
+
+.video-volume-control {
+  height:
+    46px;
+
+  min-width:
+    170px;
+
+  padding:
+    0
+    0.9rem;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    0.7rem;
+
+  border-radius:
+    999px;
+}
+
+
+.video-volume-control svg {
+  width:
+    18px;
+
+  height:
+    18px;
+
+  flex:
+    0
+    0
+    auto;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.88
+    );
+}
+
+
+.video-volume-control input {
+  width:
+    105px;
+
+  accent-color:
+    #fff;
+
+  cursor:
+    pointer;
+}
+
+
+/* =========================================================
+   TABLET
+
+   2 x 3
+========================================================= */
+
+@media (
+  max-width:
+  1050px
+) {
+
+  .videos-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(
+          0,
+          1fr
+        )
+      );
+  }
+
+
+  .video-card {
+    aspect-ratio:
+      4 / 5;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (
+  max-width:
+  700px
+) {
+
+  .videos {
+    padding:
+      5.25rem
+      1rem
+      5rem;
+  }
+
+
+  /* =======================================================
+     MOBILE BACKGROUND
+  ======================================================= */
+
+  .videos-blue-bloom {
+    filter:
+      blur(
+        90px
+      );
+  }
+
+
+  .videos-blue-bloom-one {
+    width:
+      110vw;
+
+    height:
+      110vw;
+
+    left:
+      -62vw;
+
+    top:
+      -36vw;
+  }
+
+
+  .videos-blue-bloom-two {
+    width:
+      115vw;
+
+    height:
+      115vw;
+
+    right:
+      -70vw;
+
+    top:
+      34%;
+  }
+
+
+  .videos-blue-bloom-three {
+    width:
+      130vw;
+
+    height:
+      110vw;
+
+    left:
+      -10vw;
+
+    bottom:
+      -65vw;
+  }
+
+
+  .videos-light {
+    width:
+      150%;
+
+    left:
+      -25%;
+
+    top:
+      42%;
+
+    opacity:
+      0.52;
+  }
+
+
+  .videos-grain {
+    opacity:
+      0.22;
+  }
+
+
+  /* =======================================================
+     MOBILE HEADER
+  ======================================================= */
+
+  .videos-header {
+    align-items:
+      flex-start;
+
+    margin-bottom:
+      2.6rem;
+  }
+
+
+  .videos-header-copy {
+    gap:
+      0.6rem;
+  }
+
+
+  .videos-header-copy h1 {
+    max-width:
+      80%;
+
+    font-size:
+      clamp(
+        3rem,
+        14vw,
+        5rem
+      );
+
+    line-height:
+      0.9;
+  }
+
+
+  .videos-header-meta {
+    padding-top:
+      0.25rem;
+
+    padding-bottom:
+      0;
+
+    font-size:
+      0.58rem;
+  }
+
+
+  .videos-header-meta i {
+    width:
+      6px;
+
+    height:
+      6px;
+  }
+
+
+  /* =======================================================
+     ONE CLEAN COLUMN
+  ======================================================= */
+
+  .videos-grid {
+    grid-template-columns:
+      1fr;
+
+    gap:
+      1rem;
+  }
+
+
+  .video-card {
+    width:
+      100%;
+
+    aspect-ratio:
+      4 / 5;
+
+    border-radius:
+      18px;
+  }
+
+
+  /* =======================================================
+     TOUCH PREVIEW CONTROLS
+
+     No hover exists on phones, so the play/pause
+     control is softly visible.
+  ======================================================= */
+
+  .video-card-controls {
+    left:
+      auto;
+
+    top:
+      auto;
+
+    right:
+      0.9rem;
+
+    bottom:
+      0.9rem;
+
+    transform:
+      none;
+
+    opacity:
+      0.9;
+
+    pointer-events:
+      auto;
+  }
+
+
+  .video-card:hover
+  .video-card-controls,
+
+  .video-card:focus-within
+  .video-card-controls {
+    transform:
+      none;
+  }
+
+
+  .video-card-control {
+    width:
+      42px;
+
+    height:
+      42px;
+
+    flex-basis:
+      42px;
+
+    background:
+      rgba(
+        5,
+        16,
+        31,
+        0.35
+      );
+  }
+
+
+  .video-card-control svg {
+    width:
+      17px;
+
+    height:
+      17px;
+  }
+
+
+  .video-open-hint {
+    right:
+      4.6rem;
+  }
+
+
+  .video-open-hint i {
+    display:
+      none;
+  }
+
+
+  .videos-footer-note {
+    margin-top:
+      2.25rem;
+
+    font-size:
+      0.62rem;
+  }
+
+
+  /* =======================================================
+     EXISTING MOBILE DIALOG
+  ======================================================= */
+
+  .video-dialog-backdrop {
+    padding:
+      0;
+  }
+
+
+  .video-dialog {
+    width:
+      100vw;
+
+    height:
+      100svh;
+
+    max-width:
+      none;
+
+    max-height:
+      none;
+
+    border:
+      0;
+
+    border-radius:
+      0;
+
+    background:
+      #020304;
+  }
+
+
+  .video-dialog-media {
+    width:
+      100%;
+
+    height:
+      100%;
+
+    object-fit:
+      contain;
+  }
+
+
+  .video-dialog-close {
+    top:
+      max(
+        0.9rem,
+        env(
+          safe-area-inset-top
+        )
+      );
+
+    right:
+      0.9rem;
+  }
+
+
+  .video-dialog-controls {
+    left:
+      0.85rem;
+
+    right:
+      0.85rem;
+
+    bottom:
+      max(
+        1rem,
+        env(
+          safe-area-inset-bottom
+        )
+      );
+
+    transform:
+      none;
+
+    justify-content:
+      center;
+
+    gap:
+      0.55rem;
+  }
+
+
+  .video-glass-button {
+    width:
+      44px;
+
+    height:
+      44px;
+
+    flex-basis:
+      44px;
+  }
+
+
+  .video-volume-control {
+    min-width:
+      0;
+
+    flex:
+      1;
+
+    max-width:
+      170px;
+
+    height:
+      44px;
+
+    padding:
+      0
+      0.75rem;
+  }
+
+
+  .video-volume-control input {
+    width:
+      100%;
+
+    min-width:
+      55px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (
+  max-width:
+  390px
+) {
+
+  .videos {
+    padding-left:
+      0.8rem;
+
+    padding-right:
+      0.8rem;
+  }
+
+
+  .videos-header-copy h1 {
+    font-size:
+      clamp(
+        2.8rem,
+        13.5vw,
+        4.4rem
+      );
+  }
+
+
+  .video-card {
+    border-radius:
+      16px;
+  }
+
+
+  .video-dialog-controls {
+    gap:
+      0.4rem;
+  }
+
+
+  .video-glass-button {
+    width:
+      40px;
+
+    height:
+      40px;
+
+    flex-basis:
+      40px;
+  }
+
+
+  .video-volume-control {
+    height:
+      40px;
+
+    padding:
+      0
+      0.6rem;
+  }
+
+
+  .video-volume-control svg {
+    display:
+      none;
+  }
+}
+
+
+/* =========================================================
+   TOUCH
+========================================================= */
+
+@media (
+  hover:
+  none
+) {
+
+  .video-card-controls {
+    opacity:
+      0.9;
+
+    pointer-events:
+      auto;
+  }
+
+
+  .video-card:hover {
+    transform:
+      none;
+  }
+
+
+  .video-card:hover
+  .video-preview {
+    transform:
+      scale(
+        1.015
+      );
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
+
+  .videos-grain,
+  .videos-blue-bloom {
+    animation:
+      none;
+  }
+
+
+  .video-preview,
+  .video-card,
+  .video-card-controls,
+  .video-glass-button,
+  .video-open-hint i {
+    transition:
+      none;
+  }
+}

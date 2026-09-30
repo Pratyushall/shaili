@@ -1,0 +1,1851 @@
+/* =========================================================
+   PHOTOS FONT LIBRARY
+
+   TESTABLE FONTS:
+
+   "Photos 1942"
+   "Photos Adventure"
+   "Photos Blue"
+   "Photos Coral Pixels"
+   "Photos Drawn"
+   "Photos Gridtile"
+   "Photos Hollow"
+   "Photos Hooey"
+   "Photos Hugh Is Life"
+   "Photos Manasp"
+   "Photos Midnight Munch"
+   "Photos Milestone"
+   "Photos Monashark"
+   "Photos Mustasurma"
+   "Photos Punktype"
+   "Photos Relsika"
+   "Photos Sans Serif Shaded"
+   "Photos Saphile Stamp"
+   "Photos Tracker Clock"
+   "Photos Xero4"
+========================================================= */
+
+@font-face {
+  font-family: "Photos 1942";
+  src: url("/fonts/1942.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Photos Adventure";
+  src: url("/fonts/adventure.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Photos Blue";
+  src: url("/fonts/blue.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Photos Coral Pixels";
+  src: url("/fonts/CoralPixels.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Photos Drawn";
+  src: url("/fonts/drawn.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Photos Gridtile";
+  src: url("/fonts/gridtile.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Photos Hollow";
+  src: url("/fonts/hollow.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Photos Hooey";
+  src: url("/fonts/hooey.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Photos Hugh Is Life";
+  src: url("/fonts/hughislife.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Photos Manasp";
+  src: url("/fonts/manasp.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Photos Midnight Munch";
+  src: url("/fonts/midnightmunch.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Photos Milestone";
+  src: url("/fonts/milestone.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Photos Monashark";
+  src: url("/fonts/monashark.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Photos Mustasurma";
+  src: url("/fonts/mustasurma.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Photos Punktype";
+  src: url("/fonts/punktype.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Photos Relsika";
+  src: url("/fonts/relsika.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Photos Sans Serif Shaded";
+  src: url("/fonts/sansserifshaded.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Photos Saphile Stamp";
+  src: url("/fonts/saphilestamp.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Photos Tracker Clock";
+  src: url("/fonts/trackerclock.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Photos Xero4";
+  src: url("/fonts/xero4.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+
+/* =========================================================
+   PHOTOGRAPHY
+
+   CHANGE ONLY THESE THREE TO TEST FONTS.
+========================================================= */
+
+.photos {
+  --photos-tab-font:
+    "Photos 1942";
+
+  --photos-title-font:
+    "Photos tracker clock";
+
+  --photos-arrow-font:
+    "Photos relsika";
+
+
+  position:
+    relative;
+
+  width:
+    100%;
+
+  margin:
+    0;
+
+  padding:
+    0;
+
+  background:
+    #050505;
+
+  color:
+    #f1eee8;
+}
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.photo-gallery {
+  position:
+    relative;
+
+  width:
+    100%;
+
+  margin:
+    0;
+
+  padding:
+    0;
+
+  background:
+    #050505;
+
+  border-top:
+    1px
+    solid
+    rgba(
+      255,
+      255,
+      255,
+      0.14
+    );
+}
+
+
+/* =========================================================
+   TABS
+========================================================= */
+
+.photo-tabs {
+  position:
+    sticky;
+
+  top:
+    0;
+
+  z-index:
+    100;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  width:
+    100%;
+
+  height:
+    72px;
+
+  background:
+    #050505;
+
+  border-bottom:
+    1px
+    solid
+    rgba(
+      255,
+      255,
+      255,
+      0.2
+    );
+}
+
+
+.photo-tab {
+  position:
+    relative;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  margin:
+    0;
+
+  padding:
+    0
+    clamp(
+      1.25rem,
+      3.5vw,
+      4rem
+    );
+
+  border:
+    0;
+
+  border-radius:
+    0;
+
+  background:
+    #050505;
+
+  color:
+    rgba(
+      246,
+      244,
+      239,
+      0.56
+    );
+
+  cursor:
+    pointer;
+
+  /*
+    TEST TAB FONT HERE
+  */
+
+  font-family:
+    var(
+      --photos-tab-font
+    ),
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size:
+    clamp(
+      0.72rem,
+      0.9vw,
+      0.92rem
+    );
+
+  font-weight:
+    400;
+
+  line-height:
+    1;
+
+  letter-spacing:
+    0.15em;
+
+  text-align:
+    center;
+
+  transition:
+    background
+      0.34s
+      cubic-bezier(
+        0.16,
+        1,
+        0.3,
+        1
+      ),
+
+    color
+      0.3s
+      ease,
+
+    letter-spacing
+      0.34s
+      cubic-bezier(
+        0.16,
+        1,
+        0.3,
+        1
+      );
+}
+
+
+.photo-tab + .photo-tab {
+  border-left:
+    1px
+    solid
+    rgba(
+      255,
+      255,
+      255,
+      0.18
+    );
+}
+
+
+/* =========================================================
+   SELECTED TAB
+========================================================= */
+
+.photo-tab-active {
+  background:
+    #f2f0eb;
+
+  color:
+    #080808;
+
+  letter-spacing:
+    0.19em;
+}
+
+
+.photo-tab:not(
+  .photo-tab-active
+):hover {
+  background:
+    #101010;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.88
+    );
+
+  letter-spacing:
+    0.18em;
+}
+
+
+.photo-tab:focus-visible {
+  outline:
+    2px
+    solid
+    currentColor;
+
+  outline-offset:
+    -5px;
+}
+
+
+/* =========================================================
+   DESKTOP SCROLL REVEAL
+========================================================= */
+
+.photo-scroll-story {
+  position:
+    relative;
+
+  width:
+    100%;
+
+  height:
+    175svh;
+
+  background:
+    #050505;
+}
+
+
+/* =========================================================
+   STAGE
+========================================================= */
+
+.photo-stage {
+  position:
+    relative;
+
+  width:
+    100%;
+
+  height:
+    calc(
+      100svh -
+      72px
+    );
+
+  min-height:
+    560px;
+
+  overflow:
+    hidden;
+
+  isolation:
+    isolate;
+
+  background:
+    #080808;
+
+  cursor:
+    none;
+
+  touch-action:
+    pan-y;
+}
+
+
+.photo-stage-sticky {
+  position:
+    sticky;
+
+  top:
+    72px;
+}
+
+
+/* =========================================================
+   SLIDE
+========================================================= */
+
+.photo-slide {
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  z-index:
+    1;
+
+  overflow:
+    hidden;
+
+  transform-origin:
+    center
+    center;
+
+  will-change:
+    transform,
+    filter,
+    opacity;
+}
+
+
+.photo-slide-arrow-enter {
+  animation:
+    photoArrowEnter
+    0.62s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    );
+}
+
+
+@keyframes photoArrowEnter {
+  from {
+    opacity:
+      0.12;
+  }
+
+  to {
+    opacity:
+      1;
+  }
+}
+
+
+/* =========================================================
+   PHOTO
+
+   NO COLOUR CORRECTION.
+========================================================= */
+
+.photo-image {
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  z-index:
+    1;
+
+  background-position:
+    center
+    center;
+
+  background-size:
+    cover;
+
+  background-repeat:
+    no-repeat;
+
+  background-color:
+    #0a0a0a;
+
+  transform:
+    translateZ(
+      0
+    );
+
+  backface-visibility:
+    hidden;
+}
+
+
+/* =========================================================
+   DESKTOP OPENING TITLE
+
+   FONT IS INDEPENDENT FROM TAB FONT.
+========================================================= */
+
+.photo-category-opening {
+  position:
+    absolute;
+
+  z-index:
+    40;
+
+  inset:
+    0;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  padding:
+    0
+    clamp(
+      1rem,
+      4vw,
+      4rem
+    );
+
+  pointer-events:
+    none;
+
+  user-select:
+    none;
+
+  /*
+    TEST BIG HUMANS / NO HUMANS FONT HERE
+  */
+
+  font-family:
+    var(
+      --photos-title-font
+    ),
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size:
+    clamp(
+      5.5rem,
+      18vw,
+      18rem
+    );
+
+  font-weight:
+    400;
+
+  line-height:
+    0.78;
+
+  letter-spacing:
+    -0.06em;
+
+  text-align:
+    center;
+
+  text-transform:
+    uppercase;
+
+  white-space:
+    nowrap;
+
+  color:
+    rgba(
+      244,
+      242,
+      236,
+      0.96
+    );
+
+  text-shadow:
+    0
+    3px
+    28px
+    rgba(
+      0,
+      0,
+      0,
+      0.18
+    );
+
+  transform-origin:
+    center;
+
+  will-change:
+    opacity,
+    transform;
+}
+
+
+/* =========================================================
+   ARROWS
+========================================================= */
+
+.photo-arrow {
+  position:
+    absolute;
+
+  z-index:
+    92;
+
+  top:
+    50%;
+
+  width:
+    clamp(
+      58px,
+      5.8vw,
+      84px
+    );
+
+  height:
+    clamp(
+      58px,
+      5.8vw,
+      84px
+    );
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  margin:
+    0;
+
+  padding:
+    0;
+
+  border:
+    1px
+    solid
+    rgba(
+      255,
+      255,
+      255,
+      0.58
+    );
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(
+      8,
+      8,
+      8,
+      0.12
+    );
+
+  color:
+    #ffffff;
+
+  backdrop-filter:
+    blur(
+      14px
+    )
+    saturate(
+      1.25
+    );
+
+  -webkit-backdrop-filter:
+    blur(
+      14px
+    )
+    saturate(
+      1.25
+    );
+
+  box-shadow:
+    inset
+    0
+    0
+    0
+    1px
+    rgba(
+      255,
+      255,
+      255,
+      0.05
+    ),
+
+    0
+    14px
+    38px
+    rgba(
+      0,
+      0,
+      0,
+      0.22
+    );
+
+  cursor:
+    pointer;
+
+  transform:
+    translateY(
+      -50%
+    );
+
+  transition:
+    transform
+      0.32s
+      cubic-bezier(
+        0.16,
+        1,
+        0.3,
+        1
+      ),
+
+    background
+      0.3s
+      ease,
+
+    border-color
+      0.3s
+      ease;
+}
+
+
+.photo-arrow-left {
+  left:
+    clamp(
+      1rem,
+      2.6vw,
+      2.75rem
+    );
+}
+
+
+.photo-arrow-right {
+  right:
+    clamp(
+      1rem,
+      2.6vw,
+      2.75rem
+    );
+}
+
+
+.photo-arrow span {
+  display:
+    block;
+
+  /*
+    Arrow font can also be tested,
+    although some decorative fonts may not
+    contain a nice arrow glyph.
+  */
+
+  font-family:
+    var(
+      --photos-arrow-font
+    ),
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size:
+    clamp(
+      1.4rem,
+      2vw,
+      2rem
+    );
+
+  font-weight:
+    400;
+
+  line-height:
+    1;
+
+  transform:
+    translateY(
+      -0.04em
+    );
+}
+
+
+.photo-arrow:hover {
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.17
+    );
+
+  border-color:
+    rgba(
+      255,
+      255,
+      255,
+      0.88
+    );
+
+  transform:
+    translateY(
+      -50%
+    )
+    scale(
+      1.08
+    );
+}
+
+
+.photo-arrow:active {
+  transform:
+    translateY(
+      -50%
+    )
+    scale(
+      0.95
+    );
+}
+
+
+.photo-arrow:focus-visible {
+  outline:
+    2px
+    solid
+    rgba(
+      255,
+      255,
+      255,
+      0.96
+    );
+
+  outline-offset:
+    4px;
+}
+
+
+/* =========================================================
+   MAGNIFYING LENS
+========================================================= */
+
+.photo-lens {
+  position:
+    absolute;
+
+  z-index:
+    86;
+
+  overflow:
+    hidden;
+
+  border-radius:
+    50%;
+
+  pointer-events:
+    none;
+
+  isolation:
+    isolate;
+
+  background:
+    transparent;
+
+  border:
+    1px
+    solid
+    rgba(
+      255,
+      255,
+      255,
+      0.9
+    );
+
+  box-shadow:
+    0
+    0
+    0
+    1px
+    rgba(
+      255,
+      255,
+      255,
+      0.13
+    ),
+
+    0
+    0
+    18px
+    rgba(
+      255,
+      255,
+      255,
+      0.2
+    ),
+
+    0
+    0
+    48px
+    rgba(
+      255,
+      255,
+      255,
+      0.11
+    ),
+
+    0
+    0
+    100px
+    rgba(
+      255,
+      255,
+      255,
+      0.055
+    ),
+
+    0
+    30px
+    90px
+    rgba(
+      0,
+      0,
+      0,
+      0.27
+    );
+
+  transform:
+    translateZ(
+      0
+    );
+
+  will-change:
+    left,
+    top;
+}
+
+
+/* =========================================================
+   MAGNIFIED IMAGE
+
+   ZERO COLOUR PROCESSING.
+========================================================= */
+
+.photo-lens-image {
+  position:
+    absolute;
+
+  z-index:
+    1;
+
+  inset:
+    0;
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  border-radius:
+    inherit;
+
+  pointer-events:
+    none;
+
+  background-color:
+    #0a0a0a;
+
+  filter:
+    none;
+
+  opacity:
+    1;
+
+  mix-blend-mode:
+    normal;
+
+  transform:
+    translateZ(
+      0
+    );
+}
+
+
+/* =========================================================
+   EDGE LIGHT
+========================================================= */
+
+.photo-lens-edge-light {
+  position:
+    absolute;
+
+  z-index:
+    7;
+
+  inset:
+    0;
+
+  border-radius:
+    inherit;
+
+  pointer-events:
+    none;
+
+  background:
+    radial-gradient(
+      circle
+      at
+      center,
+
+      transparent
+      0%,
+
+      transparent
+      76%,
+
+      rgba(
+        255,
+        255,
+        255,
+        0.01
+      )
+      82%,
+
+      rgba(
+        255,
+        255,
+        255,
+        0.055
+      )
+      91%,
+
+      rgba(
+        255,
+        255,
+        255,
+        0.16
+      )
+      100%
+    );
+
+  box-shadow:
+    inset
+    0
+    0
+    9px
+    rgba(
+      255,
+      255,
+      255,
+      0.17
+    ),
+
+    inset
+    0
+    0
+    24px
+    rgba(
+      255,
+      255,
+      255,
+      0.035
+    );
+}
+
+
+/* =========================================================
+   GLASS REFLECTION
+========================================================= */
+
+.photo-lens-gloss {
+  position:
+    absolute;
+
+  z-index:
+    10;
+
+  inset:
+    0;
+
+  border-radius:
+    inherit;
+
+  pointer-events:
+    none;
+
+  opacity:
+    0.17;
+
+  background:
+    radial-gradient(
+      ellipse
+      at
+      24%
+      13%,
+
+      rgba(
+        255,
+        255,
+        255,
+        0.46
+      )
+      0%,
+
+      rgba(
+        255,
+        255,
+        255,
+        0.11
+      )
+      7%,
+
+      rgba(
+        255,
+        255,
+        255,
+        0.018
+      )
+      15%,
+
+      transparent
+      29%
+    );
+
+  mix-blend-mode:
+    screen;
+}
+
+
+/* =========================================================
+   HOTSPOT
+========================================================= */
+
+.photo-lens-hotspot {
+  position:
+    absolute;
+
+  z-index:
+    12;
+
+  width:
+    28%;
+
+  height:
+    4%;
+
+  left:
+    13%;
+
+  top:
+    10%;
+
+  border-radius:
+    999px;
+
+  pointer-events:
+    none;
+
+  opacity:
+    0.3;
+
+  filter:
+    blur(
+      9px
+    );
+
+  transform:
+    rotate(
+      -24deg
+    );
+
+  background:
+    linear-gradient(
+      to right,
+
+      transparent,
+
+      rgba(
+        255,
+        255,
+        255,
+        0.84
+      ),
+
+      transparent
+    );
+}
+
+
+/* =========================================================
+   RIM
+========================================================= */
+
+.photo-lens-rim {
+  position:
+    absolute;
+
+  z-index:
+    14;
+
+  inset:
+    0;
+
+  border-radius:
+    inherit;
+
+  pointer-events:
+    none;
+
+  box-shadow:
+    inset
+    0
+    0
+    0
+    1px
+    rgba(
+      255,
+      255,
+      255,
+      0.3
+    ),
+
+    inset
+    0
+    0
+    7px
+    rgba(
+      255,
+      255,
+      255,
+      0.14
+    ),
+
+    inset
+    0
+    0
+    17px
+    rgba(
+      255,
+      255,
+      255,
+      0.025
+    );
+}
+
+
+/* =========================================================
+   INNER RING
+========================================================= */
+
+.photo-lens::before {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  z-index:
+    15;
+
+  inset:
+    7px;
+
+  border-radius:
+    inherit;
+
+  pointer-events:
+    none;
+
+  border:
+    1px
+    solid
+    rgba(
+      255,
+      255,
+      255,
+      0.13
+    );
+}
+
+
+/* =========================================================
+   OUTER RING
+========================================================= */
+
+.photo-lens::after {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  z-index:
+    16;
+
+  inset:
+    2px;
+
+  border-radius:
+    inherit;
+
+  pointer-events:
+    none;
+
+  border:
+    1px
+    solid
+    rgba(
+      255,
+      255,
+      255,
+      0.07
+    );
+}
+
+
+/* =========================================================
+   MOBILE
+
+   NO TABS
+   NO TITLE
+   NO COUNTER
+========================================================= */
+
+@media (
+  max-width:
+    800px
+) {
+
+  .photo-gallery {
+    width:
+      100%;
+
+    min-height:
+      100svh;
+
+    border-top:
+      0;
+
+    background:
+      #050505;
+  }
+
+
+  .photo-scroll-story {
+    width:
+      100%;
+
+    height:
+      100svh;
+
+    padding:
+      0;
+
+    background:
+      #050505;
+  }
+
+
+  .photo-stage {
+    width:
+      calc(
+        100vw -
+        16px
+      );
+
+    height:
+      calc(
+        100svh -
+        16px
+      );
+
+    min-height:
+      0;
+
+    margin:
+      0
+      auto;
+
+    overflow:
+      hidden;
+
+    border-radius:
+      2px;
+
+    background:
+      #080808;
+
+    cursor:
+      auto;
+
+    touch-action:
+      pan-y;
+
+    box-shadow:
+      0
+      18px
+      55px
+      rgba(
+        0,
+        0,
+        0,
+        0.3
+      );
+  }
+
+
+  .photo-stage-sticky {
+    position:
+      sticky;
+
+    top:
+      8px;
+  }
+
+
+  .photo-image {
+    inset:
+      0;
+
+    width:
+      100%;
+
+    height:
+      100%;
+
+    background-position:
+      center
+      center;
+
+    background-size:
+      cover;
+
+    filter:
+      none;
+  }
+
+
+  /* =======================================================
+     MOBILE ARROWS
+  ======================================================= */
+
+  .photo-arrow {
+    top:
+      auto;
+
+    bottom:
+      1rem;
+
+    width:
+      46px;
+
+    height:
+      46px;
+
+    border-color:
+      rgba(
+        255,
+        255,
+        255,
+        0.64
+      );
+
+    background:
+      rgba(
+        6,
+        6,
+        6,
+        0.18
+      );
+
+    backdrop-filter:
+      blur(
+        12px
+      )
+      saturate(
+        1.15
+      );
+
+    -webkit-backdrop-filter:
+      blur(
+        12px
+      )
+      saturate(
+        1.15
+      );
+
+    transform:
+      none;
+
+    box-shadow:
+      inset
+      0
+      0
+      0
+      1px
+      rgba(
+        255,
+        255,
+        255,
+        0.045
+      ),
+
+      0
+      8px
+      24px
+      rgba(
+        0,
+        0,
+        0,
+        0.22
+      );
+  }
+
+
+  .photo-arrow-left {
+    left:
+      1rem;
+  }
+
+
+  .photo-arrow-right {
+    right:
+      1rem;
+  }
+
+
+  .photo-arrow span {
+    font-size:
+      1.2rem;
+  }
+
+
+  .photo-arrow:hover,
+  .photo-arrow:active {
+    transform:
+      none;
+  }
+
+
+  /* =======================================================
+     MOBILE LENS
+  ======================================================= */
+
+  .photo-lens {
+    z-index:
+      86;
+
+    border:
+      1px
+      solid
+      rgba(
+        255,
+        255,
+        255,
+        0.92
+      );
+
+    box-shadow:
+      0
+      0
+      0
+      1px
+      rgba(
+        255,
+        255,
+        255,
+        0.11
+      ),
+
+      0
+      0
+      17px
+      rgba(
+        255,
+        255,
+        255,
+        0.18
+      ),
+
+      0
+      0
+      38px
+      rgba(
+        255,
+        255,
+        255,
+        0.085
+      ),
+
+      0
+      18px
+      52px
+      rgba(
+        0,
+        0,
+        0,
+        0.26
+      );
+  }
+
+
+  .photo-lens::before {
+    inset:
+      6px;
+  }
+
+
+  .photo-lens::after {
+    inset:
+      2px;
+  }
+
+
+  .photo-lens-hotspot {
+    width:
+      30%;
+
+    height:
+      5%;
+
+    left:
+      11%;
+
+    top:
+      8%;
+
+    filter:
+      blur(
+        7px
+      );
+
+    opacity:
+      0.27;
+  }
+
+
+  .photo-lens-gloss {
+    opacity:
+      0.15;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (
+  max-width:
+    390px
+) {
+
+  .photo-stage {
+    width:
+      calc(
+        100vw -
+        12px
+      );
+
+    height:
+      calc(
+        100svh -
+        12px
+      );
+  }
+
+
+  .photo-stage-sticky {
+    top:
+      6px;
+  }
+
+
+  .photo-arrow {
+    width:
+      42px;
+
+    height:
+      42px;
+
+    bottom:
+      0.75rem;
+  }
+
+
+  .photo-arrow-left {
+    left:
+      0.75rem;
+  }
+
+
+  .photo-arrow-right {
+    right:
+      0.75rem;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+  prefers-reduced-motion:
+    reduce
+) {
+
+  .photo-slide-arrow-enter {
+    animation:
+      none;
+  }
+
+
+  .photo-tab,
+  .photo-arrow {
+    transition:
+      none;
+  }
+}
